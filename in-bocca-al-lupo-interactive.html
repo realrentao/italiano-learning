@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In bocca al lupo! — 意大利语互动学习</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f4f0;
+      --bg2: #eeede8;
+      --surface: #ffffff;
+      --surface2: #f0efe9;
+      --surface3: #e8e7e0;
+      --accent: #c0392b;
+      --accent-dim: rgba(192,57,43,0.08);
+      --giallo: #d4a017;
+      --giallo-dim: rgba(212,160,23,0.1);
+      --giallo-border: rgba(212,160,23,0.3);
+      --giallo-glow: rgba(212,160,23,0.25);
+      --rosso: #c0392b;
+      --rosso-dim: rgba(192,57,43,0.08);
+      --rosso-border: rgba(192,57,43,0.25);
+      --blu: #1a6fb4;
+      --blu-dim: rgba(26,111,180,0.08);
+      --blu-border: rgba(26,111,180,0.25);
+      --verde: #1e7e34;
+      --verde-dim: rgba(30,126,52,0.08);
+      --verde-border: rgba(30,126,52,0.25);
+      --viola: #7b3db8;
+      --viola-dim: rgba(123,61,184,0.08);
+      --viola-border: rgba(123,61,184,0.25);
+      --cyan: #0e7c7b;
+      --cyan-dim: rgba(14,124,123,0.08);
+      --cyan-border: rgba(14,124,123,0.25);
+      --arancione: #d35400;
+      --arancione-dim: rgba(211,84,0,0.08);
+      --arancione-border: rgba(211,84,0,0.25);
+      --text: #1a1a2e;
+      --text2: #3a3a5c;
+      --muted: #7a7a9a;
+      --border: rgba(0,0,0,0.07);
+      --border2: rgba(0,0,0,0.12);
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 20px 16px 80px;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* ── Hero ─────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #fdf8f0 0%, #fff5e8 40%, #fef9f0 100%);
+      border: 1px solid rgba(192,57,43,0.15);
+      border-radius: var(--radius);
+      padding: 40px 36px 36px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(192,57,43,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--giallo-dim);
+      border: 1px solid var(--giallo-border);
+      color: var(--giallo);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero-proverb {
+      font-family: 'Outfit', serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 800;
+      color: #1a1a2e;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .hero-proverb .hl { color: var(--verde); }
+    .hero-proverb .hl2 { color: var(--giallo); }
+    .hero-ipa { font-size: 0.95rem; color: var(--cyan); letter-spacing: 0.04em; margin-bottom: 6px; opacity: 0.8; cursor: pointer; }
+    .hero-ipa:hover { opacity: 1; text-decoration: underline; }
+    .hero-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; }
+
+    /* ── Cards ─────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 16px;
+      position: relative;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .card:hover { border-color: var(--border2); box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .card-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-title::before { content: ''; width: 3px; height: 14px; background: var(--accent); border-radius: 2px; }
+    .card-title.viola::before { background: var(--viola); }
+    .card-title.cyan::before { background: var(--cyan); }
+    .card-title.arancione::before { background: var(--arancione); }
+    .card-title.giallo::before { background: var(--giallo); }
+    .card-title.verde::before { background: var(--verde); }
+    .section-label { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 16px; }
+
+    /* ── Interactive Word Chips ─────────────────────── */
+    .word-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 56px;
+      cursor: pointer;
+      position: relative;
+    }
+    .word-chip-word {
+      font-family: 'Outfit', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      margin-right: 4px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      user-select: none;
+    }
+    .word-chip:hover .word-chip-word {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .word-chip-meaning { font-size: 0.7rem; color: var(--muted); text-align: center; margin-top: 4px; line-height: 1.3; max-width: 72px; }
+    .word-arrow { color: var(--muted); font-size: 1rem; align-self: center; padding: 0 4px; margin-top: 6px; }
+    .w-in { background: var(--blu-dim); color: var(--blu); border: 1px solid var(--blu-border); }
+    .w-bocca { background: var(--giallo-dim); color: var(--giallo); border: 1px solid var(--giallo-border); }
+    .w-al { background: var(--verde-dim); color: var(--verde); border: 1px solid var(--verde-border); }
+    .w-lupo { background: var(--rosso-dim); color: var(--rosso); border: 1px solid var(--rosso-border); }
+
+    .word-tooltip {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--text);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      line-height: 1.5;
+      pointer-events: none;
+    }
+    .word-tooltip::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid var(--text);
+    }
+    .word-chip:hover .word-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ── Audio Button ─────────────────────────────── */
+    .audio-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin: 16px auto 0;
+    }
+    .audio-btn:hover { background: var(--cyan); color: #fff; transform: scale(1.02); }
+    .audio-btn:active { transform: scale(0.98); }
+    .audio-btn.playing { animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+
+    /* ── Accordion ────────────────────────────────── */
+    .accordion-item {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+    .accordion-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .accordion-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .accordion-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .accordion-arrow {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+      color: var(--muted);
+    }
+    .accordion-item.open .accordion-arrow { transform: rotate(180deg); }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      padding: 0 20px;
+    }
+    .accordion-item.open .accordion-body {
+      max-height: 600px;
+      padding: 0 20px 16px;
+    }
+
+    /* ── Tabs ─────────────────────────────────────── */
+    .tab-nav {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { border-color: var(--border2); color: var(--text); }
+    .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .tab-btn.active.giallo { background: var(--giallo); border-color: var(--giallo); }
+    .tab-btn.active.rosso { background: var(--rosso); border-color: var(--rosso); }
+    .tab-btn.active.blu { background: var(--blu); border-color: var(--blu); }
+    .tab-btn.active.verde { background: var(--verde); border-color: var(--verde); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ── Interactive Cards ─────────────────────────── */
+    .flip-card {
+      perspective: 1000px;
+      width: 100%;
+      height: 120px;
+      cursor: pointer;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .flip-front {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+    }
+    .flip-back {
+      background: linear-gradient(135deg, var(--surface3), var(--surface2));
+      border: 1px solid var(--border2);
+      transform: rotateY(180deg);
+      font-size: 0.85rem;
+      color: var(--text2);
+      text-align: center;
+      line-height: 1.5;
+    }
+    .flip-hint {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* ── Flashcard Grid ────────────────────────────── */
+    .flash-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .flash-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .flash-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--verde);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    .flash-card:hover::before { transform: scaleX(1); }
+    .flash-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); border-color: var(--verde-border); }
+    .flash-word { font-family: 'Outfit', serif; font-size: 1.1rem; font-weight: 700; color: var(--verde); margin-bottom: 6px; }
+    .flash-meaning { font-size: 0.78rem; color: var(--muted); }
+    .flash-card.revealed .flash-meaning { color: var(--verde); font-weight: 600; }
+
+    /* ── Progress Bar ──────────────────────────────── */
+    .progress-container {
+      background: var(--surface2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .progress-label { font-size: 0.82rem; font-weight: 600; color: var(--text); }
+    .progress-count { font-size: 0.82rem; color: var(--muted); }
+    .progress-bar { height: 8px; background: var(--surface3); border-radius: 4px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--verde), var(--cyan)); border-radius: 4px; transition: width 0.5s ease; }
+
+    /* ── Quiz Section ─────────────────────────────── */
+    .quiz-card {
+      background: linear-gradient(135deg, var(--viola-dim), rgba(123,61,184,0.04));
+      border: 1px solid var(--viola-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .quiz-question {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+    .quiz-option {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.92rem;
+      color: var(--text2);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .quiz-option:hover { border-color: var(--viola-border); background: var(--surface2); }
+    .quiz-option.correct { border-color: var(--verde); background: var(--verde-dim); color: var(--verde); }
+    .quiz-option.wrong { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); }
+    .quiz-option.disabled { pointer-events: none; opacity: 0.6; }
+    .quiz-option-marker {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--surface3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .quiz-result {
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      display: none;
+    }
+    .quiz-result.show { display: block; animation: fadeIn 0.3s ease; }
+    .quiz-result.correct { background: var(--verde-dim); color: var(--verde); border: 1px solid var(--verde-border); }
+    .quiz-result.wrong { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(192,57,43,0.25); }
+
+    /* ── Labels ──────────────────────────────────── */
+    .label-giallo { background: var(--giallo-dim); color: var(--giallo); border: 1px solid var(--giallo-border); }
+    .label-rosso { background: var(--rosso-dim); color: var(--rosso); border: 1px solid var(--rosso-border); }
+    .label-blu { background: var(--blu-dim); color: var(--blu); border: 1px solid var(--blu-border); }
+    .label-verde { background: var(--verde-dim); color: var(--verde); border: 1px solid var(--verde-border); }
+    .label-viola { background: var(--viola-dim); color: var(--viola); border: 1px solid var(--viola-border); }
+    .label-cyan { background: var(--cyan-dim); color: var(--cyan); border: 1px solid var(--cyan-border); }
+    .ilabel { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.05em; text-transform: uppercase; vertical-align: middle; margin-left: 4px; }
+
+    /* ── Grammar Block ────────────────────────────── */
+    .gram-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-bottom: 12px; border-left-width: 3px; }
+    .gram-block-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .gram-word { font-family: 'Outfit', serif; font-size: 1.15rem; font-weight: 700; }
+    .gram-type { font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 4px; letter-spacing: 0.05em; }
+    .gram-desc { font-size: 0.88rem; color: var(--text2); line-height: 1.7; }
+    .gram-desc strong { color: var(--text); font-weight: 600; }
+    .gram-desc em { font-style: italic; color: var(--cyan); }
+    .gram-desc ul { margin-top: 8px; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+    .gram-desc li { line-height: 1.6; }
+
+    /* ── Example ─────────────────────────────────── */
+    .example-block { background: var(--surface3); border-radius: 10px; padding: 16px 20px; margin: 14px 0 10px; border-left: 3px solid var(--accent); }
+    .example-label { font-size: 0.7rem; color: var(--accent); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+    .example-italian { font-family: 'Outfit', serif; font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 6px; cursor: pointer; }
+    .example-italian:hover { color: var(--viola); }
+    .example-meaning { font-family: 'Noto Serif SC', 'Noto Sans SC', serif; font-size: 0.88rem; color: var(--muted); }
+
+    /* ── Rule Grid ───────────────────────────────── */
+    .rule-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
+    .rule-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; border-top-width: 3px; }
+    .rule-card-title { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .rule-card-text { font-size: 0.85rem; color: var(--text2); line-height: 1.5; }
+    .rule-card-text em { font-style: italic; color: var(--cyan); }
+    .rule-card-text strong { color: var(--text); }
+
+    /* ── Note Box ─────────────────────────────────── */
+    .note-box { margin-top: 14px; padding: 14px 18px; background: var(--surface2); border-radius: 10px; border-left: 3px solid var(--cyan); }
+    .note-box.giallo { background: var(--giallo-dim); border-color: var(--giallo); }
+    .note-box.rosso { background: var(--rosso-dim); border-color: var(--rosso); }
+    .note-box.verde { background: var(--verde-dim); border-color: var(--verde); }
+    .note-label { font-size: 0.82rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .note-text { font-size: 0.88rem; color: var(--text2); line-height: 1.7; }
+    .note-text strong { color: var(--text); }
+
+    /* ── Tip Box ─────────────────────────────────── */
+    .tip-box { background: linear-gradient(135deg, rgba(74,222,128,0.07), rgba(34,211,238,0.07)); border: 1px solid var(--verde-border); border-left: 4px solid var(--verde); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 16px; }
+    .tip-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .tip-icon { width: 28px; height: 28px; background: var(--verde-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .tip-icon svg { width: 14px; height: 14px; color: var(--verde); }
+    .tip-title { font-size: 0.82rem; font-weight: 700; color: var(--verde); text-transform: uppercase; letter-spacing: 0.08em; }
+    .tip-content { font-size: 0.88rem; color: var(--text2); line-height: 1.7; }
+
+    /* ── Summary Table ───────────────────────────── */
+    .summary-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.88rem; }
+    .summary-table th { background: var(--surface3); color: var(--muted); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--border2); }
+    .summary-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text2); vertical-align: top; line-height: 1.5; }
+    .summary-table tr:last-child td { border-bottom: none; }
+    .summary-table tr:hover td { background: rgba(0,0,0,0.02); }
+    .summary-table .word { font-family: 'Outfit', serif; font-weight: 700; color: var(--text); cursor: pointer; }
+    .summary-table .word:hover { text-decoration: underline; }
+    .summary-table .tag { display: inline-block; font-size: 0.68rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; letter-spacing: 0.05em; }
+    .t-prep { background: var(--blu-dim); color: var(--blu); border: 1px solid var(--blu-border); }
+    .t-noun { background: var(--giallo-dim); color: var(--giallo); border: 1px solid var(--giallo-border); }
+    .t-art { background: var(--verde-dim); color: var(--verde); border: 1px solid var(--verde-border); }
+
+    /* ── Pron Row ─────────────────────────────────── */
+    .pron-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 20px 0 0; }
+    .pron-item { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; transition: transform 0.2s; }
+    .pron-item:hover { transform: scale(1.05); }
+    .pron-phon { font-family: 'Outfit', serif; font-size: 0.9rem; font-weight: 600; color: var(--cyan); background: var(--cyan-dim); border: 1px solid var(--cyan-border); padding: 5px 12px; border-radius: 8px; letter-spacing: 0.03em; }
+    .pron-ita { font-family: 'Outfit', serif; font-size: 0.88rem; font-weight: 600; background: var(--surface3); border: 1px solid var(--border2); color: var(--text); padding: 4px 10px; border-radius: 8px; }
+    .pron-mean { font-size: 0.7rem; color: var(--muted); text-align: center; margin-top: 4px; }
+    .pron-plus { color: var(--muted); font-size: 0.9rem; align-self: center; margin-top: 18px; }
+
+    /* ── Word Row ─────────────────────────────────── */
+    .word-row { display: flex; align-items: flex-start; gap: 0; margin-bottom: 10px; flex-wrap: wrap; }
+
+    /* ── Comparison Box ───────────────────────────── */
+    .comparison-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+    .comparison-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; border-top: 3px solid; }
+    .comparison-card.orange { border-top-color: var(--arancione); }
+    .comparison-card.green { border-top-color: var(--verde); }
+    .comparison-card-title { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .comparison-card.orange .comparison-card-title { color: var(--arancione); }
+    .comparison-card.green .comparison-card-title { color: var(--verde); }
+    .comparison-card-text { font-size: 0.88rem; color: var(--text2); line-height: 1.6; }
+    .comparison-card-text em { font-style: italic; color: var(--cyan); }
+
+    /* ── Footer ───────────────────────────────────── */
+    .footer { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); }
+
+    /* ── Animations ───────────────────────────────── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .card { animation: fadeUp 0.5s ease both; }
+    .hero { animation: fadeUp 0.5s ease both; }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
+    .shake { animation: shake 0.4s ease; }
+
+    /* ── Scrollbar ─────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+    /* ── Responsive ─────────────────────────────────── */
+    @media (max-width: 600px) {
+      body { padding: 12px 12px 60px; }
+      .card { padding: 20px 18px; }
+      .hero { padding: 28px 20px; }
+      .rule-grid { grid-template-columns: 1fr; }
+      .summary-table { font-size: 0.8rem; }
+      .summary-table th, .summary-table td { padding: 8px 10px; }
+      .tab-nav { gap: 6px; }
+      .tab-btn { padding: 6px 12px; font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      Espressione idiomatica · 互动版
+    </div>
+    <div class="hero-proverb" id="mainProverb">
+      <span class="hl">In</span> <span class="hl2">bocca</span> <span class="hl">al</span> <span class="hl2">lupo</span>!
+    </div>
+    <div class="hero-ipa" onclick="speakText('In bocca al lupo!')">[in ˈbokka al ˈluːpo] 点击发音</div>
+    <div class="hero-label">意大利语祝福语 · Espressione idiomatica</div>
+
+    <div class="pron-row">
+      <div class="pron-item" onclick="speakText('In')">
+        <div class="pron-phon">in</div>
+        <div class="pron-ita">In</div>
+        <div class="pron-mean">在…里面</div>
+      </div>
+      <div class="pron-plus">+</div>
+      <div class="pron-item" onclick="speakText('bocca')">
+        <div class="pron-phon">ˈbokka</div>
+        <div class="pron-ita">bocca</div>
+        <div class="pron-mean">嘴巴</div>
+      </div>
+      <div class="pron-plus">+</div>
+      <div class="pron-item" onclick="speakText('al')">
+        <div class="pron-phon">al</div>
+        <div class="pron-ita">al</div>
+        <div class="pron-mean">a+il</div>
+      </div>
+      <div class="pron-plus">+</div>
+      <div class="pron-item" onclick="speakText('lupo')">
+        <div class="pron-phon">ˈluːpo</div>
+        <div class="pron-ita">lupo</div>
+        <div class="pron-mean">狼</div>
+      </div>
+      <div class="pron-plus">!</div>
+    </div>
+
+    <button class="audio-btn" onclick="speakText('In bocca al lupo!')" id="audioBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      播放发音
+    </button>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-container">
+    <div class="progress-header">
+      <span class="progress-label">学习进度</span>
+      <span class="progress-count"><span id="progressCount">0</span> / 6 已掌握</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <!-- ① 中文翻译 -->
+  <div class="card">
+    <div class="card-title">中文翻译</div>
+    <div style="background: linear-gradient(135deg, var(--giallo-dim), rgba(212,160,23,0.06)); border: 1px solid var(--giallo-border); border-radius: 12px; padding: 20px 24px;">
+      <div style="font-family:'Noto Serif SC',serif; font-size:1.25rem; font-weight:600; color:var(--text); margin-bottom:12px; line-height:1.6;">
+        祝你好运！✦ 加油！Break a leg!
+      </div>
+      <div style="height:1px; background:var(--border); margin:16px 0;"></div>
+      <div style="font-size:0.85rem; color:var(--muted); line-height:1.6;">
+        这是意大利语中最经典的<strong style="color:var(--text)">祝福语</strong>，字面意思是"进入狼的嘴里"，实际含义等同于英语的 <strong style="color:var(--verde);">"Break a leg!"</strong> 或中文的"祝你好运！"。<br><br>
+        传统回答是：<strong style="color:var(--text);">"Grazie!"</strong>（谢谢！）或 <strong style="color:var(--text);">"Crepi il lupo!"</strong>（狼去死吧！）<br>
+        其中 <em>Crepi</em> 源自动词 <em>crepare</em>（死去/爆裂），意为"让狼去死吧"——以毒攻毒，驱邪避凶。
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 逐词拆解（交互式词卡） -->
+  <div class="card">
+    <div class="card-title verde">逐词拆解 · 点击查看详情</div>
+    <div style="font-size:1rem; font-weight:600; color:var(--text); margin-bottom:16px;">字面直译：进入狼的嘴里。</div>
+
+    <div style="background:var(--surface2);border-radius:12px;padding:20px 22px;">
+      <div class="word-row">
+        <div class="word-chip" onclick="markLearned('in')">
+          <div class="word-chip-word w-in">In</div>
+          <div class="word-chip-meaning">在…里面</div>
+          <div class="word-tooltip">In = 介词<br>"在…里面"或"进入…"</div>
+        </div>
+        <div class="word-arrow">→</div>
+        <div class="word-chip" onclick="markLearned('bocca')">
+          <div class="word-chip-word w-bocca">bocca</div>
+          <div class="word-chip-meaning">嘴巴</div>
+          <div class="word-tooltip">bocca = 阴性名词<br>la bocca（嘴巴）<br>在短语中引申为"危险"</div>
+        </div>
+        <div class="word-arrow">→</div>
+        <div class="word-chip" onclick="markLearned('al')">
+          <div class="word-chip-word w-al">al</div>
+          <div class="word-chip-meaning">a+il</div>
+          <div class="word-tooltip">al = 缩合冠词<br>a（到/向）+ il（阳性单数定冠词）<br>= "到狼那里"</div>
+        </div>
+        <div class="word-arrow">→</div>
+        <div class="word-chip" onclick="markLearned('lupo')">
+          <div class="word-chip-word w-lupo">lupo</div>
+          <div class="word-chip-meaning">狼</div>
+          <div class="word-tooltip">lupo = 阳性名词<br>il lupo（狼）<br>狼在西方文化中是危险的象征</div>
+        </div>
+        <div class="word-arrow">!</div>
+      </div>
+    </div>
+
+    <div class="note-box verde">
+      <div class="note-label" style="color:var(--verde);">核心结构</div>
+      <div class="note-text">
+        <span class="ilabel label-blu">介词</span> In + <span class="ilabel label-giallo">名词</span> bocca + <span class="ilabel label-verde">缩合冠词</span> al + <span class="ilabel label-giallo">名词</span> lupo
+        <br><br>
+        完整展开：<em>In bocca al lupo</em> = <em>Dentro alla bocca del lupo</em>（走进狼的嘴里）
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ 语法详解（折叠面板） -->
+  <div class="card">
+    <div class="card-title verde">语法详解 · Grammatica</div>
+
+    <!-- Tab Nav -->
+    <div class="tab-nav">
+      <button class="tab-btn active blu" onclick="switchTab('in', this)">1 In</button>
+      <button class="tab-btn giallo" onclick="switchTab('bocca', this)">2 bocca</button>
+      <button class="tab-btn verde" onclick="switchTab('al', this)">3 al</button>
+      <button class="tab-btn rosso" onclick="switchTab('lupo', this)">4 lupo</button>
+      <button class="tab-btn viola" onclick="switchTab('origin', this)">5 来历</button>
+    </div>
+
+    <!-- Tab: In -->
+    <div class="tab-content active" id="tab-in">
+      <div class="section-label">1 In — 介词</div>
+      <div class="gram-block" style="border-left-color:var(--blu);">
+        <div class="gram-block-header">
+          <span class="gram-word" style="color:var(--blu);font-size:1.3rem;">In</span>
+          <span class="gram-type label-blu">介词</span>
+          <span class="gram-type" style="background:var(--surface3);color:var(--muted);border:1px solid var(--border2);">in / dentro</span>
+        </div>
+        <div class="gram-desc">
+          <strong>In</strong> 是意大利语中最常用的介词之一，主要含义有：
+          <ul>
+            <li><strong>"在…里面"</strong>（地点）→ <em>Sono in Italia.</em>（我在意大利。）</li>
+            <li><strong>"进入"</strong>（方向）→ <em>Entra in casa.</em>（进屋。）</li>
+            <li><strong>"用…材料"</strong> → <em>Scrivere in italiano.</em>（用意大利语写。）</li>
+          </ul>
+          在 <em>In bocca al lupo</em> 中，In 表示<strong>"进入"</strong>的方向。
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="example-label">典型例句</div>
+        <div class="example-italian" onclick="speakText('In bocca al lupo!')">In bocca al lupo!</div>
+        <div class="example-meaning">祝你好运！（Break a leg!）</div>
+      </div>
+      <div class="rule-grid">
+        <div class="rule-card" style="border-top-color:var(--blu);">
+          <div class="rule-card-title" style="color:var(--blu);">表示地点</div>
+          <div class="rule-card-text"><em>In ufficio</em> — 在办公室<br>In classe — 在教室里</div>
+        </div>
+        <div class="rule-card" style="border-top-color:var(--cyan);">
+          <div class="rule-card-title" style="color:var(--cyan);">表示方式</div>
+          <div class="rule-card-text"><em>In italiano</em> — 用意大利语<br>In fretta — 匆忙地</div>
+        </div>
+        <div class="rule-card" style="border-top-color:var(--viola);">
+          <div class="rule-card-title" style="color:var(--viola);">表示时间</div>
+          <div class="rule-card-text"><em>In estate</em> — 在夏天<br>In due giorni — 两天内</div>
+        </div>
+      </div>
+      <div class="note-box" style="background:var(--blu-dim);border-color:var(--blu);">
+        <div class="note-label" style="color:var(--blu);">记忆口诀</div>
+        <div class="note-text">
+          <strong style="color:var(--blu);">In</strong> 有三用：<strong>地点、方向、材料</strong>。<br>
+          进入狼嘴要表达，<strong>方向含义</strong>记心间。
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: bocca -->
+    <div class="tab-content" id="tab-bocca">
+      <div class="section-label">2 bocca — 阴性名词</div>
+      <div class="gram-block" style="border-left-color:var(--giallo);">
+        <div class="gram-block-header">
+          <span class="gram-word" style="color:var(--giallo);font-size:1.3rem;">bocca</span>
+          <span class="gram-type label-giallo">阴性名词</span>
+          <span class="gram-type" style="background:var(--surface3);color:var(--muted);border:1px solid var(--border2);">la bocca / le bocche</span>
+        </div>
+        <div class="gram-desc">
+          <strong>Bocca</strong>（阴性名词）是"嘴巴、口"的意思，是人体的重要部位，在语言和文化中常常象征<strong>危险、伤害、入口</strong>。
+          <ul>
+            <li>固定短语：<em>in bocca</em>（在嘴里 / 进入嘴中）</li>
+            <li>意大利语谚语中，狼的嘴是<strong>危险和挑战</strong>的隐喻</li>
+            <li>延伸表达：<em>fare a bocca aperta</em>（目瞪口呆）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flash-grid">
+        <div class="flash-card" onclick="this.classList.toggle('revealed')">
+          <div class="flash-word">la bocca</div>
+          <div class="flash-meaning">嘴巴（阴性名词）</div>
+          <div class="flash-hint">点击查看</div>
+        </div>
+        <div class="flash-card" onclick="this.classList.toggle('revealed')">
+          <div class="flash-word">bocca</div>
+          <div class="flash-meaning">口（不带冠词形式）</div>
+          <div class="flash-hint">点击查看</div>
+        </div>
+        <div class="flash-card" onclick="this.classList.toggle('revealed')">
+          <div class="flash-word">il lupo</div>
+          <div class="flash-meaning">狼（阳性名词）</div>
+          <div class="flash-hint">点击查看</div>
+        </div>
+        <div class="flash-card" onclick="this.classList.toggle('revealed')">
+          <div class="flash-word">il lupo</div>
+          <div class="flash-meaning">狼（复数：i lupi）</div>
+          <div class="flash-hint">点击查看</div>
+        </div>
+      </div>
+      <div class="note-box giallo">
+        <div class="note-label" style="color:var(--giallo);">文化联想</div>
+        <div class="note-text">
+          在西方民间传说中，<strong>狼</strong>象征危险、贪婪和未知。进入狼嘴 = 进入危险之地 = <strong>祝你在危险中生存</strong>。
+          这种"反话"表达法在很多语言中都能找到（英语的 "Break a leg!" 也是如此）。
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: al -->
+    <div class="tab-content" id="tab-al">
+      <div class="section-label">3 al — 缩合冠词</div>
+      <div class="gram-block" style="border-left-color:var(--verde);">
+        <div class="gram-block-header">
+          <span class="gram-word" style="color:var(--verde);font-size:1.3rem;">al</span>
+          <span class="gram-type label-verde">缩合冠词</span>
+          <span class="gram-type" style="background:var(--surface3);color:var(--muted);border:1px solid var(--border2);">a + il</span>
+        </div>
+        <div class="gram-desc">
+          <strong>Al</strong> 是介词 <em>a</em>（到、向）和阳性单数定冠词 <em>il</em> 的<strong>缩合形式</strong>（contrzione）。
+          <ul>
+            <li><em>a + il = al</em>（到 / 向 + 阳性单数定冠词）</li>
+            <li>其他缩合：<em>a + lo = allo</em>，<em>a + la = alla</em>，<em>a + le = alle</em></li>
+            <li>注意：<em>il lupo</em> 是阳性名词，所以用 <em>al</em> 而不是 <em>alla</em></li>
+          </ul>
+          <div style="margin-top:12px;padding:12px 14px;background:var(--surface3);border-radius:8px;">
+            <div style="font-size:0.8rem;color:var(--muted);margin-bottom:6px;">所有介词+定冠词缩合表</div>
+            <div style="font-size:0.85rem;color:var(--text2);">
+              <strong>di + il=del</strong> / <strong>a + il=al</strong> / <strong>da + il=dal</strong> / <strong>in + il=nel</strong><br>
+              <strong>su + il= sul</strong> / <strong>di + lo=dello</strong> / <strong>a + lo=allo</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="example-label">典型例句</div>
+        <div class="example-italian" onclick="speakText('Vado al mare.')">Vado al mare.</div>
+        <div class="example-meaning">我去海边。（a + il = al）</div>
+      </div>
+      <div class="note-box verde">
+        <div class="note-label" style="color:var(--verde);">记忆口诀</div>
+        <div class="note-text">
+          <strong style="color:var(--verde);">Al</strong> 是"去见狼"，<strong>阳性单数要记清</strong>。<br>
+          介词 <em>a</em> 遇见 <em>il</em>，<strong>缩合变成 al</strong> 永不变。
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: lupo -->
+    <div class="tab-content" id="tab-lupo">
+      <div class="section-label">4 lupo — 阳性名词 · 狼</div>
+      <div class="gram-block" style="border-left-color:var(--rosso);">
+        <div class="gram-block-header">
+          <span class="gram-word" style="color:var(--rosso);font-size:1.3rem;">lupo</span>
+          <span class="gram-type label-rosso">阳性名词</span>
+          <span class="gram-type" style="background:var(--surface3);color:var(--muted);border:1px solid var(--border2);">il lupo / i lupi</span>
+        </div>
+        <div class="gram-desc">
+          <strong>Lupo</strong>（阳性名词，词源：拉丁语 <em>lupus</em>）是"狼"的意思，在意大利文化中有丰富的象征意义：
+          <ul>
+            <li><strong>危险与挑战</strong>：狼是自然界中的顶级捕食者</li>
+            <li><strong>顽强意志</strong>：在意大利童话《小红帽》中，大灰狼是主角</li>
+            <li><strong>俚语</strong>：<em>Lupo</em> 也可指<strong>色狼</strong>（对好色之人的戏称）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="rule-grid">
+        <div class="rule-card" style="border-top-color:var(--rosso);">
+          <div class="rule-card-title" style="color:var(--rosso);">阳性名词规律</div>
+          <div class="rule-card-text">以 <strong>-o</strong> 结尾 → 复数变为 <strong>-i</strong><br><em>lupo → i lupi</em></div>
+        </div>
+        <div class="rule-card" style="border-top-color:var(--giallo);">
+          <div class="rule-card-title" style="color:var(--giallo);">阴性对应词</div>
+          <div class="rule-card-text">狼的阴性形式：<em>lupa</em>（母狼）<br>复数：<em>le lupe</em></div>
+        </div>
+        <div class="rule-card" style="border-top-color:var(--blu);">
+          <div class="rule-card-title" style="color:var(--blu);">文化意象</div>
+          <div class="rule-card-text">意大利谚语中狼多代表<strong>艰难险阻</strong>。<em>Uomo lupo</em> = 狼人。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: 来历 -->
+    <div class="tab-content" id="tab-origin">
+      <div class="section-label">5 这个说法的来历 · Origine</div>
+
+      <div class="comparison-grid">
+        <div class="comparison-card orange">
+          <div class="comparison-card-title">戏剧传统</div>
+          <div class="comparison-card-text">
+            <strong>最广为流传的来源</strong>：意大利演员在正式演出前互相说 <em>In bocca al lupo!</em> 作为祝福。<br><br>
+            这种说法据说源自古罗马时期，角斗士出场时观众也会喊类似的话。
+          </div>
+        </div>
+        <div class="comparison-card green">
+          <div class="comparison-card-title">宗教起源</div>
+          <div class="comparison-card-text">
+            另一种解释是<strong>宗教语境</strong>：进入狼的嘴比喻走向危险，类似于基督徒面对考验时的祈祷。<br><br>
+            祝福他人"在狼的嘴里"是祝愿他们<strong>在逆境中获得力量</strong>。
+          </div>
+        </div>
+        <div class="comparison-card orange">
+          <div class="comparison-card-title">民间迷信</div>
+          <div class="comparison-card-text">
+            <strong>民间传说</strong>认为：直接说"祝好运"会招来厄运，所以用<strong>反话祝福</strong>——说"愿你落入狼口"反而能带来好运。<br><br>
+            这与英语的 <em>"Break a leg!"</em> 和希伯来语的 <em>"Ksiva VeChasima Tova"</em>（写字要写得潦草，实际是犹太新年祝福）属于同一类语言现象。
+          </div>
+        </div>
+        <div class="comparison-card green">
+          <div class="comparison-card-title">正确回答</div>
+          <div class="comparison-card-text">
+            对方说 <em>In bocca al lupo!</em> 后，你应该回答：<br><br>
+            <strong>"Grazie!"</strong>（谢谢！）<br>或<br>
+            <strong>"Crepi il lupo!"</strong>（让狼去死！）<br><br>
+            <em>Crepi</em> = 虚拟式现在时，"愿狼死掉"，是一种<strong>以毒攻毒</strong>的驱邪表达。
+          </div>
+        </div>
+      </div>
+
+      <div class="example-block" style="margin-top:16px;">
+        <div class="example-label">完整对话示例</div>
+        <div class="example-italian" onclick="speakText('In bocca al lupo! Grazie! Crepi il lupo!')">— In bocca al lupo!<br>— Grazie! Crepi il lupo!</div>
+        <div class="example-meaning">— 祝你好运！<br>— 谢谢！愿狼去死！</div>
+      </div>
+
+      <div class="note-box" style="background:var(--giallo-dim);border-color:var(--giallo);">
+        <div class="note-label" style="color:var(--giallo);">语言学视角</div>
+        <div class="note-text">
+          <strong>反话祝福</strong>（litote / irony）是人类语言中的普遍现象：用<strong>否定危险</strong>来表达<strong>肯定祝福</strong>。<br><br>
+          例子：英语 <em>"Break a leg!"</em>（祝你断腿）、希伯来语新年祝福（祝你写得潦草）、中文"一路走好"。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ④ 小测验 -->
+  <div class="quiz-card">
+    <div class="card-title verde">随堂测验 · 检验学习成果</div>
+
+    <div id="quiz1">
+      <div class="quiz-question">在意大利语中，"In bocca al lupo!" 的正确回答是什么？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkAnswer(this, true, 'quiz1')">
+          <div class="quiz-option-marker">A</div>
+          <div>"Grazie!" 或 "Crepi il lupo!"</div>
+        </div>
+        <div class="quiz-option" onclick="checkAnswer(this, false, 'quiz1')">
+          <div class="quiz-option-marker">B</div>
+          <div>"Buona fortuna!"（祝你好运！）</div>
+        </div>
+        <div class="quiz-option" onclick="checkAnswer(this, false, 'quiz1')">
+          <div class="quiz-option-marker">C</div>
+          <div>"In bocca al lupo!"（互相再说一遍）</div>
+        </div>
+        <div class="quiz-option" onclick="checkAnswer(this, false, 'quiz1')">
+          <div class="quiz-option-marker">D</div>
+          <div>"Arrivederci!"（再见！）</div>
+        </div>
+      </div>
+      <div class="quiz-result" id="result-quiz1">
+        <strong>正确！</strong> 对方说"In bocca al lupo!"后，应该回答"Grazie!"或"Crepi il lupo!"（愿狼去死）——这是一种以毒攻毒的传统回应。
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ Tip Box -->
+  <div class="tip-box">
+    <div class="tip-header">
+      <div class="tip-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+      <div class="tip-title">使用场景 · Quando si usa</div>
+    </div>
+    <div class="tip-content">
+      <strong>In bocca al lupo!</strong> 主要用在以下场景：
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px;">
+        <div style="background:var(--surface2);border-radius:8px;padding:10px 14px;">
+          <div style="font-weight:700;color:var(--verde);margin-bottom:4px;">🎭 戏剧/演出</div>
+          <div style="font-size:0.78rem;color:var(--muted);">演员登台前，观众互祝</div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:10px 14px;">
+          <div style="font-weight:700;color:var(--giallo);margin-bottom:4px;">🎬 影视拍摄</div>
+          <div style="font-size:0.78rem;color:var(--muted);">开拍前剧组的经典祝福</div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:10px 14px;">
+          <div style="font-weight:700;color:var(--blu);margin-bottom:4px;">📝 考试</div>
+          <div style="font-size:0.78rem;color:var(--muted);">考试/面试前的加油鼓励</div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:10px 14px;">
+          <div style="font-weight:700;color:var(--viola);margin-bottom:4px;">🏆 比赛</div>
+          <div style="font-size:0.78rem;color:var(--muted);">体育比赛前的祝福语</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;padding:12px 16px;background:var(--surface2);border-radius:8px;border-left:3px solid var(--verde);">
+        <strong>对比记忆：</strong><br>
+        <span style="color:var(--muted);">🇮🇹 意大利语：</span><em>In bocca al lupo!</em> → Grazie! Crepi!<br>
+        <span style="color:var(--muted);">🇬🇧 英语：</span><em>Break a leg!</em> → Thank you!<br>
+        <span style="color:var(--muted);">🇨🇳 中文：</span>祝你好运！→ 谢谢！<br>
+        <span style="font-size:0.8rem;color:var(--cyan);margin-top:4px;display:block;">三者都是用"否定危险"来表达"肯定祝福"的语言现象！</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Sblocca l'italiano · 意大利语互动学习【In bocca al lupo!】
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  // ── Web Speech Synthesis ──────────────────────────────
+  let voices = [];
+  let selectedVoice = null;
+
+  function loadVoices() {
+    voices = window.speechSynthesis.getVoices();
+    // Prefer Italian voice, fallback to any Italian-sounding voice
+    const italianVoice = voices.find(v =>
+      v.lang.startsWith('it') ||
+      v.name.toLowerCase().includes('italian') ||
+      v.name.toLowerCase().includes('italiano')
+    );
+    selectedVoice = italianVoice || voices[0] || null;
+  }
+
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = loadVoices;
+  }
+  loadVoices();
+
+  function speakText(text) {
+    if (!('speechSynthesis' in window)) {
+      alert('您的浏览器不支持语音合成，请使用 Chrome、Edge 或 Safari。');
+      return;
+    }
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'it-IT';
+    utterance.rate = 0.85;
+    utterance.pitch = 1;
+    if (selectedVoice) utterance.voice = selectedVoice;
+
+    const btn = document.getElementById('audioBtn');
+    if (btn) {
+      btn.classList.add('playing');
+      utterance.onend = () => btn.classList.remove('playing');
+      utterance.onerror = () => btn.classList.remove('playing');
+    }
+    speechSynthesis.speak(utterance);
+  }
+
+  // Fallback: if no Italian voice, use a generic approach
+  function speakWord(text) {
+    speakText(text);
+  }
+
+  // ── Tab Switching ─────────────────────────────────────────
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tabId).classList.add('active');
+    if (btn) btn.classList.add('active');
+  }
+
+  // ── Quiz ──────────────────────────────────────────────────
+  function checkAnswer(el, correct, quizId) {
+    const quiz = document.getElementById(quizId);
+    const opts = quiz.querySelectorAll('.quiz-option');
+    const result = quiz.querySelector('.quiz-result');
+
+    opts.forEach(o => o.classList.add('disabled'));
+    if (correct) {
+      el.classList.add('correct');
+      result.className = 'quiz-result show correct';
+      result.innerHTML = '<strong>正确！</strong> 对方说"In bocca al lupo!"后，应该回答"Grazie!"或"Crepi il lupo!"（愿狼去死）——这是一种以毒攻毒的传统回应。';
+    } else {
+      el.classList.add('wrong');
+      el.classList.add('shake');
+      setTimeout(() => el.classList.remove('shake'), 400);
+      result.className = 'quiz-result show wrong';
+      result.innerHTML = '<strong>答错了。</strong> 正确答案是 A — "Grazie!" 或 "Crepi il lupo!"。这是意大利语中经典的回应方式。';
+    }
+  }
+
+  // ── Progress Tracking ─────────────────────────────────────
+  const learned = new Set();
+  const totalItems = 6;
+
+  function markLearned(item) {
+    learned.add(item);
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const count = learned.size;
+    document.getElementById('progressCount').textContent = count;
+    document.getElementById('progressFill').style.width = (count / totalItems * 100) + '%';
+  }
+
+  // ── Initialize ────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    updateProgress();
+  });
+</script>
+
+</body>
+</html>
