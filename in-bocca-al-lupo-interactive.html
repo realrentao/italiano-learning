@@ -557,6 +557,28 @@
     ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: #aaa; }
 
+    /* ── Back link ───────────────────────────────────────── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 14px;
+      margin: 16px 0 0;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text2);
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .back-link:hover {
+      background: var(--accent-dim);
+      border-color: rgba(192,57,43,0.2);
+      color: var(--accent);
+    }
+
     /* ── Responsive ─────────────────────────────────── */
     @media (max-width: 600px) {
       body { padding: 12px 12px 60px; }
@@ -574,18 +596,18 @@
 
 <div class="container">
 
+  <a href="index.html" class="back-link">← 目录</a>
+
   <!-- Hero -->
   <div class="hero">
     <div class="hero-badge">
       <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-      Espressione idiomatica · 互动版
+      意大利经典谚语 · Proverbio italiano
     </div>
     <div class="hero-proverb" id="mainProverb">
       <span class="hl">In</span> <span class="hl2">bocca</span> <span class="hl">al</span> <span class="hl2">lupo</span>!
     </div>
     <div class="hero-ipa" onclick="speakText('In bocca al lupo!')">[in ˈbokka al ˈluːpo] 点击发音</div>
-    <div class="hero-label">意大利语祝福语 · Espressione idiomatica</div>
-
     <div class="pron-row">
       <div class="pron-item" onclick="speakText('In')">
         <div class="pron-phon">in</div>
@@ -639,9 +661,10 @@
       </div>
       <div style="height:1px; background:var(--border); margin:16px 0;"></div>
       <div style="font-size:0.85rem; color:var(--muted); line-height:1.6;">
-        这是意大利语中最经典的<strong style="color:var(--text)">祝福语</strong>，字面意思是"进入狼的嘴里"，实际含义等同于英语的 <strong style="color:var(--verde);">"Break a leg!"</strong> 或中文的"祝你好运！"。<br><br>
-        传统回答是：<strong style="color:var(--text);">"Grazie!"</strong>（谢谢！）或 <strong style="color:var(--text);">"Crepi il lupo!"</strong>（狼去死吧！）<br>
-        其中 <em>Crepi</em> 源自动词 <em>crepare</em>（死去/爆裂），意为"让狼去死吧"——以毒攻毒，驱邪避凶。
+        这是意大利语中最经典的<strong style="color:var(--text)">祝福语</strong>，字面意思是"进入狼的嘴里"，实际含义等同于英语的 <strong style="color:var(--verde);">"Break a leg!"</strong>（祝你断腿！）。<br><br>
+        传统回答是：<strong style="color:var(--text);">"Crepi!"</strong> 或 <strong style="color:var(--text);">"Crepi il lupo!"</strong>（愿狼去死！）<br>
+        其中 <em>Crepi</em> 源自动词 <em>crepare</em>（死去/爆裂），意为"让狼去死吧"——以毒攻毒，驱邪避凶。<br>
+        ❌ 不要说 <strong>"Grazie!"</strong>——这不是正确回答！
       </div>
     </div>
   </div>
@@ -902,8 +925,9 @@
           <div class="comparison-card-title">正确回答</div>
           <div class="comparison-card-text">
             对方说 <em>In bocca al lupo!</em> 后，你应该回答：<br><br>
-            <strong>"Grazie!"</strong>（谢谢！）<br>或<br>
-            <strong>"Crepi il lupo!"</strong>（让狼去死！）<br><br>
+            ✅ <strong>"Crepi!"</strong>（简短版）<br>
+            ✅ <strong>"Crepi il lupo!"</strong>（完整版）<br><br>
+            ❌ 不要说 <strong>"Grazie!"</strong>，这不是正确回答！<br><br>
             <em>Crepi</em> = 虚拟式现在时，"愿狼死掉"，是一种<strong>以毒攻毒</strong>的驱邪表达。
           </div>
         </div>
@@ -911,15 +935,15 @@
 
       <div class="example-block" style="margin-top:16px;">
         <div class="example-label">完整对话示例</div>
-        <div class="example-italian" onclick="speakText('In bocca al lupo! Grazie! Crepi il lupo!')">— In bocca al lupo!<br>— Grazie! Crepi il lupo!</div>
-        <div class="example-meaning">— 祝你好运！<br>— 谢谢！愿狼去死！</div>
+        <div class="example-italian" onclick="speakText('In bocca al lupo! Crepi! Crepi il lupo!')">— In bocca al lupo!<br>— Crepi! / Crepi il lupo!</div>
+        <div class="example-meaning">— 祝你好运！<br>— 愿狼去死！</div>
       </div>
 
       <div class="note-box" style="background:var(--giallo-dim);border-color:var(--giallo);">
         <div class="note-label" style="color:var(--giallo);">语言学视角</div>
         <div class="note-text">
           <strong>反话祝福</strong>（litote / irony）是人类语言中的普遍现象：用<strong>否定危险</strong>来表达<strong>肯定祝福</strong>。<br><br>
-          例子：英语 <em>"Break a leg!"</em>（祝你断腿）、希伯来语新年祝福（祝你写得潦草）、中文"一路走好"。
+          例子：英语 <em>"Break a leg!"</em>（祝你断腿）、希伯来语新年祝福（祝你写得潦草）。
         </div>
       </div>
     </div>
@@ -935,23 +959,23 @@
       <div class="quiz-options">
         <div class="quiz-option" onclick="checkAnswer(this, true, 'quiz1')">
           <div class="quiz-option-marker">A</div>
-          <div>"Grazie!" 或 "Crepi il lupo!"</div>
+          <div>"Crepi!" 或 "Crepi il lupo!"</div>
         </div>
         <div class="quiz-option" onclick="checkAnswer(this, false, 'quiz1')">
           <div class="quiz-option-marker">B</div>
-          <div>"Buona fortuna!"（祝你好运！）</div>
+          <div>"Grazie!"（谢谢！）</div>
         </div>
         <div class="quiz-option" onclick="checkAnswer(this, false, 'quiz1')">
           <div class="quiz-option-marker">C</div>
-          <div>"In bocca al lupo!"（互相再说一遍）</div>
+          <div>"Buona fortuna!"（祝你好运！）</div>
         </div>
         <div class="quiz-option" onclick="checkAnswer(this, false, 'quiz1')">
           <div class="quiz-option-marker">D</div>
-          <div>"Arrivederci!"（再见！）</div>
+          <div>"In bocca al lupo!"（互相再说一遍）</div>
         </div>
       </div>
       <div class="quiz-result" id="result-quiz1">
-        <strong>正确！</strong> 对方说"In bocca al lupo!"后，应该回答"Grazie!"或"Crepi il lupo!"（愿狼去死）——这是一种以毒攻毒的传统回应。
+        <strong>正确！</strong> 对方说"In bocca al lupo!"后，应该回答"Crepi!"或"Crepi il lupo!"——这是以毒攻毒的传统回应。❌ "Grazie!" 不是正确回答！
       </div>
     </div>
   </div>
@@ -988,16 +1012,11 @@
       </div>
       <div style="margin-top:12px;padding:12px 16px;background:var(--surface2);border-radius:8px;border-left:3px solid var(--verde);">
         <strong>对比记忆：</strong><br>
-        <span style="color:var(--muted);">🇮🇹 意大利语：</span><em>In bocca al lupo!</em> → Grazie! Crepi!<br>
+        <span style="color:var(--muted);">🇮🇹 意大利语：</span><em>In bocca al lupo!</em> → Crepi! / Crepi il lupo!<br>
         <span style="color:var(--muted);">🇬🇧 英语：</span><em>Break a leg!</em> → Thank you!<br>
-        <span style="color:var(--muted);">🇨🇳 中文：</span>祝你好运！→ 谢谢！<br>
-        <span style="font-size:0.8rem;color:var(--cyan);margin-top:4px;display:block;">三者都是用"否定危险"来表达"肯定祝福"的语言现象！</span>
+        <span style="font-size:0.8rem;color:var(--cyan);margin-top:4px;display:block;">意英两国都通过"否定危险"来表达"肯定祝福"——以毒攻毒，驱邪祈福！</span>
       </div>
     </div>
-  </div>
-
-  <div class="footer">
-    Sblocca l'italiano · 意大利语互动学习【In bocca al lupo!】
   </div>
 
 </div><!-- /container -->
@@ -1067,13 +1086,13 @@
     if (correct) {
       el.classList.add('correct');
       result.className = 'quiz-result show correct';
-      result.innerHTML = '<strong>正确！</strong> 对方说"In bocca al lupo!"后，应该回答"Grazie!"或"Crepi il lupo!"（愿狼去死）——这是一种以毒攻毒的传统回应。';
+      result.innerHTML = '<strong>正确！</strong> 对方说"In bocca al lupo!"后，应该回答"Crepi!"或"Crepi il lupo!"——这是以毒攻毒的传统回应。';
     } else {
       el.classList.add('wrong');
       el.classList.add('shake');
       setTimeout(() => el.classList.remove('shake'), 400);
       result.className = 'quiz-result show wrong';
-      result.innerHTML = '<strong>答错了。</strong> 正确答案是 A — "Grazie!" 或 "Crepi il lupo!"。这是意大利语中经典的回应方式。';
+      result.innerHTML = '<strong>答错了。</strong> 正确答案是 A — "Crepi!" 或 "Crepi il lupo!"。❌ "Grazie!" 不是正确回答！';
     }
   }
 
