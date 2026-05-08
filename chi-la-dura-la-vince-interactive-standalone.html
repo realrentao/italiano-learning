@@ -546,6 +546,28 @@
     ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: #aaa; }
 
+    /* ── Back link ───────────────────────────────────────── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 14px;
+      margin: 16px 0 0;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text2);
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .back-link:hover {
+      background: var(--accent-dim);
+      border-color: rgba(192,57,43,0.2);
+      color: var(--accent);
+    }
+
     /* ── Responsive ─────────────────────────────────── */
     @media (max-width: 600px) {
       body { padding: 12px 12px 60px; }
@@ -563,16 +585,16 @@
 
 <div class="container">
 
+  <a href="index.html" class="back-link">← 目录</a>
+
   <!-- Hero -->
   <div class="hero">
     <div class="hero-badge">
       <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-      Proverbio classico · 互动版
+      意大利经典谚语 · Proverbio italiano
     </div>
     <div class="hero-proverb" id="mainProverb">Chi <span class="hl">la</span> dura <span class="hl">la</span> vince</div>
     <div class="hero-ipa" onclick="playAudio('chi la dura la vince.mp3')">[ki la ˈduːra la ˈvintʃe] 点击发音</div>
-    <div class="hero-label">意大利经典谚语 · Proverbio italiano</div>
-
     <div class="pron-row">
       <div class="pron-item" onclick="playAudio('chi.mp3')">
         <div class="pron-phon">ki</div>
@@ -965,10 +987,6 @@
         <span style="font-size:0.8rem;color:var(--muted);margin-top:4px;display:block;">这类谚语朗朗上口，多读多背，语感自然提升！</span>
       </div>
     </div>
-  </div>
-
-  <div class="footer">
-    Sblocca l'italiano · 意大利语语法详解【互动版】
   </div>
 
 </div><!-- /container -->
