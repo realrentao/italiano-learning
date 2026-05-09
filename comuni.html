@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>意大利语常用语 · Frasi comuni — 互动学习</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f4f0; --bg2: #eeede8; --surface: #ffffff; --surface2: #f0efe9;
+      --accent: #c0392b; --accent-dim: rgba(192,57,43,0.08);
+      --giallo: #d4a017; --giallo-dim: rgba(212,160,23,0.10); --giallo-border: rgba(212,160,23,0.30);
+      --verde: #1e7e34; --verde-dim: rgba(30,126,52,0.08); --verde-border: rgba(30,126,52,0.25);
+      --blu: #1a6fb4; --blu-dim: rgba(26,111,180,0.08); --blu-border: rgba(26,111,180,0.25);
+      --viola: #7b3db8; --viola-dim: rgba(123,61,184,0.08);
+      --text: #1a1a2e; --text2: #3a3a5c; --muted: #7a7a9a;
+      --border: rgba(0,0,0,0.07); --border2: rgba(0,0,0,0.12);
+      --radius: 16px; --radius-sm: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', 'Noto Sans SC', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 0 20px 60px; }
+
+    .container { max-width: 720px; margin: 0 auto; padding-top: 0; }
+
+    /* Breadcrumb */
+    .breadcrumb { display: inline-flex; align-items: center; gap: 6px; background: var(--surface); border: 1px solid var(--border2); border-radius: 100px; padding: 5px 14px; font-size: 0.78rem; font-weight: 500; color: var(--muted); margin-bottom: 16px; text-decoration: none; transition: color 0.15s; }
+    .breadcrumb:hover { color: var(--accent); }
+
+    /* Header */
+    .header { text-align: center; padding: 40px 20px 32px; }
+    .header-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--giallo-dim); border: 1px solid var(--giallo-border); border-radius: 100px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; color: var(--giallo); letter-spacing: 0.02em; margin-bottom: 20px; }
+    .header-title { font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 800; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .header-title span { color: var(--giallo); }
+    .header-subtitle { font-size: 1rem; color: var(--muted); font-weight: 400; margin-bottom: 24px; }
+    .header-rule { width: 60px; height: 3px; background: linear-gradient(90deg, var(--giallo), var(--accent)); border-radius: 2px; margin: 0 auto 28px; }
+
+    /* Stats */
+    .stats-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+    .stat-chip { background: var(--surface); border: 1px solid var(--border2); border-radius: 100px; padding: 6px 16px; font-size: 0.82rem; font-weight: 500; color: var(--text2); display: flex; align-items: center; gap: 5px; }
+    .stat-chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blu); }
+
+    /* Section label */
+    .section-label { font-size: 0.78rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; padding-left: 2px; }
+
+    /* Phrase cards */
+    .card-grid { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+    .phrase-card { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); padding: 22px 26px; display: flex; align-items: flex-start; gap: 16px; text-decoration: none; color: inherit; transition: transform 0.18s ease, box-shadow 0.18s ease; cursor: pointer; position: relative; overflow: hidden; }
+    .phrase-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 4px 0 0 4px; }
+    .phrase-card.blu::before { background: var(--blu); }
+    .phrase-card.verde::before { background: var(--verde); }
+    .phrase-card.viola::before { background: var(--viola); }
+    .phrase-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .phrase-card:hover .card-arrow { transform: translateX(4px); color: var(--accent); }
+
+    .card-left { flex: 1; }
+    .card-number { font-size: 0.72rem; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 6px; text-transform: uppercase; }
+    .card-italian { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 4px; }
+    .card-pinyin { font-size: 0.82rem; color: var(--blu); font-weight: 500; margin-bottom: 6px; }
+    .card-meaning { font-size: 0.88rem; color: var(--muted); font-weight: 400; }
+    .card-tag { display: inline-flex; align-items: center; gap: 4px; background: var(--blu-dim); border: 1px solid var(--blu-border); border-radius: 100px; padding: 3px 10px; font-size: 0.72rem; font-weight: 600; color: var(--blu); margin-top: 8px; }
+    .card-arrow { font-size: 1.4rem; color: var(--border2); flex-shrink: 0; transition: transform 0.18s ease, color 0.18s ease; line-height: 1; margin-top: 4px; }
+
+    /* Divider */
+    .divider { height: 1px; background: var(--border); margin: 8px 0 40px; }
+
+    /* Coming soon */
+    .coming-soon-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 48px; }
+    .coming-soon-card { background: var(--surface2); border: 1px dashed var(--border2); border-radius: var(--radius); padding: 18px 24px; display: flex; align-items: center; gap: 14px; }
+    .cs-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .cs-text { font-size: 0.9rem; color: var(--muted); font-weight: 400; }
+    .cs-tag { margin-left: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 3px 10px; font-size: 0.7rem; color: var(--muted); white-space: nowrap; }
+
+    /* CTA */
+    .cta-box { background: linear-gradient(135deg, var(--giallo-dim), rgba(212,160,23,0.04)); border: 1px solid rgba(212,160,23,0.15); border-radius: var(--radius); padding: 24px 28px; text-align: center; }
+    .cta-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .cta-desc { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
+    .cta-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.18s ease; }
+    .cta-btn.primary { background: var(--giallo); color: white; }
+    .cta-btn.primary:hover { background: #b8910f; transform: translateY(-1px); }
+    .cta-btn.secondary { background: var(--surface); color: var(--text2); border: 1px solid var(--border2); }
+    .cta-btn.secondary:hover { border-color: var(--giallo); color: var(--giallo); }
+
+    /* Footer */
+    .footer { text-align: center; padding: 32px 20px 0; color: var(--muted); font-size: 0.78rem; }
+    .footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      body { padding: 0 14px 50px; }
+      .header { padding: 30px 16px 24px; }
+      .phrase-card { padding: 18px 16px; }
+      .card-italian { font-size: 1.05rem; }
+      .cta-links { flex-direction: column; }
+      .cta-btn { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Breadcrumb -->
+  <a class="breadcrumb" href="index.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1m-6 0h6"/></svg>
+    意大利语互动学习
+  </a>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      意大利语常用语 · Frasi comuni
+    </div>
+    <h1 class="header-title">意大利语<span>常用语</span></h1>
+    <p class="header-subtitle">Frasi comuni · 日常高频表达 · 即学即用</p>
+    <div class="header-rule"></div>
+    <div class="stats-row">
+      <div class="stat-chip"><div class="dot"></div>收录 6 条常用语</div>
+      <div class="stat-chip">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 10"/><path d="M12 6v6l4 2"/></svg>
+        持续更新中
+      </div>
+    </div>
+  </div>
+
+  <!-- Phrase cards -->
+  <div class="section-label">已收录 · Frasi disponibili</div>
+  <div class="card-grid">
+
+    <a class="phrase-card blu" href="#">
+      <div class="card-left">
+        <div class="card-number">#01 · 问候</div>
+        <div class="card-italian">Ciao! Come stai?</div>
+        <div class="card-pinyin">/tʃao ko-me stai/</div>
+        <div class="card-meaning">你好！你好吗？</div>
+        <div class="card-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.86 1.18 6.88L12 17.77l-6.18 3.05L7 14.14 2 9.27l6.91-3.01L12 2z"/></svg>
+          问候 · 含发音
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="phrase-card verde" href="#">
+      <div class="card-left">
+        <div class="card-number">#02 · 感谢</div>
+        <div class="card-italian">Grazie mille!</div>
+        <div class="card-pinyin">/ɡrat-sje mil-le/</div>
+        <div class="card-meaning">非常感谢！</div>
+        <div class="card-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.86 1.18 6.88L12 17.77l-6.18 3.05L7 14.14 2 9.27l6.91-3.01L12 2z"/></svg>
+          感谢 · 含发音
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="phrase-card viola" href="#">
+      <div class="card-left">
+        <div class="card-number">#03 · 道歉</div>
+        <div class="card-italian">Mi dispiace!</div>
+        <div class="card-pinyin">/mi dis-pja-tʃe/</div>
+        <div class="card-meaning">对不起！我很抱歉！</div>
+        <div class="card-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.86 1.18 6.88L12 17.77l-6.18 3.05L7 14.14 2 9.27l6.91-3.01L12 2z"/></svg>
+          道歉 · 含发音
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="phrase-card blu" href="#">
+      <div class="card-left">
+        <div class="card-number">#04 · 请求</div>
+        <div class="card-italian">Per favore / Per piacere</div>
+        <div class="card-pinyin">/per fa-vo-re/ /per pja-tʃe-re/</div>
+        <div class="card-meaning">请 / 麻烦您</div>
+        <div class="card-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.86 1.18 6.88L12 17.77l-6.18 3.05L7 14.14 2 9.27l6.91-3.01L12 2z"/></svg>
+          请求 · 含发音
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="phrase-card verde" href="#">
+      <div class="card-left">
+        <div class="card-number">#05 · 自我介绍</div>
+        <div class="card-italian">Piacere, mi chiamo...</div>
+        <div class="card-pinyin">/pja-tʃe-re mi kja-mo/</div>
+        <div class="card-meaning">很高兴认识你，我叫……</div>
+        <div class="card-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.86 1.18 6.88L12 17.77l-6.18 3.05L7 14.14 2 9.27l6.91-3.01L12 2z"/></svg>
+          自我介绍 · 含发音
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="phrase-card viola" href="#">
+      <div class="card-left">
+        <div class="card-number">#06 · 告别</div>
+        <div class="card-italian">A presto / A dopo!</div>
+        <div class="card-pinyin">/a pre-sto/ /a do-po/</div>
+        <div class="card-meaning">回头见 / 一会儿见！</div>
+        <div class="card-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.86 1.18 6.88L12 17.77l-6.18 3.05L7 14.14 2 9.27l6.91-3.01L12 2z"/></svg>
+          告别 · 含发音
+        </div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Coming soon -->
+  <div class="section-label">即将上线 · Prossimamente</div>
+  <div class="coming-soon-grid">
+    <div class="coming-soon-card">
+      <div class="cs-icon">🇮🇹</div>
+      <div class="cs-text">餐厅点餐常用语 · Al ristorante</div>
+      <div class="cs-tag">#07 · 场景用语</div>
+    </div>
+    <div class="coming-soon-card">
+      <div class="cs-icon">🇮🇹</div>
+      <div class="cs-text">购物常用语 · Al negozio</div>
+      <div class="cs-tag">#08 · 场景用语</div>
+    </div>
+    <div class="coming-soon-card">
+      <div class="cs-icon">🇮🇹</div>
+      <div class="cs-text">问路常用语 · Chiedere indicazioni</div>
+      <div class="cs-tag">#09 · 场景用语</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <div class="cta-title">抖音博主 @realrentao 倾情制作</div>
+    <div class="cta-desc">更多意大利语学习内容，持续更新中</div>
+    <div class="cta-links">
+      <a class="cta-btn primary" href="proverbi.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.86 1.18 6.88L12 17.77l-6.18 3.05L7 14.14 2 9.27l6.91-3.01L12 2z"/></svg>
+        去学谚语板块
+      </a>
+      <a class="cta-btn secondary" href="index.html">
+        返回总目录 →
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>意大利语常用语 · Frasi comuni · 互动学习版</p>
+    <p style="margin-top:6px;">By <a href="https://github.com/realrentao/italiano-learning" target="_blank">@realrentao</a> · GitHub Pages</p>
+  </div>
+
+</div>
+</body>
+</html>
