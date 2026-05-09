@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>意大利语经典俗语 · Proverbi italiani — 互动学习</title>
+  <title>意大利语互动学习 · Impara l'italiano giocando</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet">
@@ -13,7 +13,6 @@
       --bg2: #eeede8;
       --surface: #ffffff;
       --surface2: #f0efe9;
-      --surface3: #e8e7e0;
       --accent: #c0392b;
       --accent-dim: rgba(192,57,43,0.08);
       --giallo: #d4a017;
@@ -37,7 +36,6 @@
       --radius-sm: 8px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: 'Outfit', 'Noto Sans SC', sans-serif;
       background: var(--bg);
@@ -45,362 +43,163 @@
       min-height: 100vh;
       padding: 0 20px 60px;
     }
+    .container { max-width: 720px; margin: 0 auto; padding-top: 0; }
 
-    /* ── Container ──────────────────────────────────────── */
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding-top: 0;
-    }
-
-    /* ── Header ─────────────────────────────────────────── */
-    .header {
-      text-align: center;
-      padding: 40px 20px 32px;
-    }
-
+    /* Header */
+    .header { text-align: center; padding: 40px 20px 32px; }
     .header-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
       background: var(--accent-dim);
       border: 1px solid rgba(192,57,43,0.2);
-      border-radius: 100px;
-      padding: 5px 14px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.02em;
+      border-radius: 100px; padding: 5px 14px;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--accent); letter-spacing: 0.02em;
       margin-bottom: 20px;
     }
-
     .header-title {
       font-family: 'Outfit', sans-serif;
       font-size: clamp(1.8rem, 5vw, 2.6rem);
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.2;
-      margin-bottom: 12px;
+      font-weight: 800; color: var(--text);
+      line-height: 1.2; margin-bottom: 12px;
     }
-
-    .header-title span {
-      color: var(--accent);
-    }
-
-    .header-subtitle {
-      font-size: 1rem;
-      color: var(--muted);
-      font-weight: 400;
-      margin-bottom: 24px;
-    }
-
+    .header-title span { color: var(--accent); }
+    .header-subtitle { font-size: 1rem; color: var(--muted); font-weight: 400; margin-bottom: 24px; }
     .header-rule {
-      width: 60px;
-      height: 3px;
+      width: 60px; height: 3px;
       background: linear-gradient(90deg, var(--accent), var(--giallo));
-      border-radius: 2px;
-      margin: 0 auto 28px;
+      border-radius: 2px; margin: 0 auto 28px;
     }
 
-    /* ── Stats row ──────────────────────────────────────── */
-    .stats-row {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-
+    /* Stats */
+    .stats-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
     .stat-chip {
-      background: var(--surface);
-      border: 1px solid var(--border2);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--text2);
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      background: var(--surface); border: 1px solid var(--border2);
+      border-radius: 100px; padding: 6px 16px;
+      font-size: 0.82rem; font-weight: 500; color: var(--text2);
+      display: flex; align-items: center; gap: 5px;
     }
+    .stat-chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--verde); }
 
-    .stat-chip .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--verde);
-    }
-
-    /* ── Proverb cards ──────────────────────────────────── */
+    /* Section label */
     .section-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 14px;
-      padding-left: 2px;
+      font-size: 0.78rem; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 14px; padding-left: 2px;
     }
 
-    .card-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 40px;
-    }
-
-    .proverb-card {
+    /* Module cards */
+    .card-grid { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+    .module-card {
       background: var(--surface);
       border: 1px solid var(--border2);
       border-radius: var(--radius);
-      padding: 24px 26px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 28px 28px;
+      text-decoration: none; color: inherit;
+      display: flex; align-items: center; justify-content: space-between;
       gap: 16px;
-      text-decoration: none;
-      color: inherit;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
       cursor: pointer;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
-
-    .proverb-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
+    .module-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
       border-radius: 4px 0 0 4px;
     }
+    .module-card.rosso::before { background: var(--accent); }
+    .module-card.giallo::before { background: var(--giallo); }
+    .module-card.verde::before { background: var(--verde); }
+    .module-card.blu::before   { background: var(--blu); }
 
-    .proverb-card.rosso::before { background: var(--accent); }
-    .proverb-card.verde::before  { background: var(--verde); }
-    .proverb-card.blu::before     { background: var(--blu); }
-    .proverb-card.viola::before   { background: var(--viola); }
-
-    .proverb-card:hover {
+    .module-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      border-color: var(--border2);
     }
+    .module-card:hover .card-arrow { transform: translateX(4px); color: var(--accent); }
 
-    .proverb-card:hover .card-arrow {
-      transform: translateX(4px);
-      color: var(--accent);
+    .card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
     }
+    .rosso .card-icon { background: var(--accent-dim); }
+    .giallo .card-icon { background: var(--giallo-dim); }
+    .verde .card-icon { background: var(--verde-dim); }
+    .blu .card-icon   { background: var(--blu-dim); }
 
-    .card-left {
-      flex: 1;
-    }
-
-    .card-number {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-    }
-
-    .card-italian {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.3;
-      margin-bottom: 6px;
-    }
-
-    .card-meaning {
-      font-size: 0.88rem;
-      color: var(--muted);
-      font-weight: 400;
-    }
-
+    .card-body { flex: 1; }
+    .card-eyebrow { font-size: 0.72rem; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+    .card-title { font-size: 1.15rem; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 4px; }
+    .card-desc { font-size: 0.85rem; color: var(--muted); }
     .card-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: var(--giallo-dim);
-      border: 1px solid var(--giallo-border);
-      border-radius: 100px;
-      padding: 3px 10px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: #8a6500;
+      display: inline-flex; align-items: center; gap: 4px;
+      background: var(--giallo-dim); border: 1px solid var(--giallo-border);
+      border-radius: 100px; padding: 3px 10px;
+      font-size: 0.72rem; font-weight: 600; color: #8a6500;
       margin-top: 8px;
     }
+    .card-arrow { font-size: 1.4rem; color: var(--border2); flex-shrink: 0; transition: transform 0.18s ease, color 0.18s ease; line-height: 1; }
 
-    .card-arrow {
-      font-size: 1.4rem;
-      color: var(--border2);
-      flex-shrink: 0;
-      transition: transform 0.18s ease, color 0.18s ease;
-      line-height: 1;
-    }
-
-    /* ── Divider ────────────────────────────────────────── */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 8px 0 40px;
-    }
-
-    /* ── Coming soon ────────────────────────────────────── */
-    .coming-soon-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 48px;
-    }
-
+    /* Coming soon */
+    .coming-soon-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 48px; }
     .coming-soon-card {
-      background: var(--surface2);
-      border: 1px dashed var(--border2);
-      border-radius: var(--radius);
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      background: var(--surface2); border: 1px dashed var(--border2);
+      border-radius: var(--radius); padding: 18px 24px;
+      display: flex; align-items: center; gap: 14px;
     }
+    .cs-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .cs-text { font-size: 0.9rem; color: var(--muted); font-weight: 400; }
+    .cs-tag { margin-left: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 3px 10px; font-size: 0.7rem; color: var(--muted); white-space: nowrap; }
 
-    .cs-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--surface);
-      border: 1px solid var(--border2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .cs-text {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 400;
-    }
-
-    .cs-tag {
-      margin-left: auto;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 3px 10px;
-      font-size: 0.7rem;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    /* ── CTA ────────────────────────────────────────────── */
+    /* CTA */
     .cta-box {
       background: linear-gradient(135deg, var(--accent-dim), rgba(192,57,43,0.04));
       border: 1px solid rgba(192,57,43,0.15);
-      border-radius: var(--radius);
-      padding: 24px 28px;
-      text-align: center;
+      border-radius: var(--radius); padding: 24px 28px; text-align: center;
     }
-
-    .cta-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-
-    .cta-desc {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .cta-links {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
+    .cta-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .cta-desc { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
+    .cta-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 9px 20px;
-      border-radius: 100px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.18s ease;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 20px; border-radius: 100px;
+      font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; transition: all 0.18s ease;
     }
+    .cta-btn.primary { background: var(--accent); color: white; }
+    .cta-btn.primary:hover { background: #a93226; transform: translateY(-1px); }
+    .cta-btn.secondary { background: var(--surface); color: var(--text2); border: 1px solid var(--border2); }
+    .cta-btn.secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    .cta-btn.primary {
-      background: var(--accent);
-      color: white;
-    }
+    .divider { height: 1px; background: var(--border); margin: 8px 0 40px; }
 
-    .cta-btn.primary:hover {
-      background: #a93226;
-      transform: translateY(-1px);
-    }
+    /* Footer */
+    .footer { text-align: center; padding: 32px 20px 0; color: var(--muted); font-size: 0.78rem; }
+    .footer a { color: var(--accent); text-decoration: none; }
 
-    .cta-btn.secondary {
-      background: var(--surface);
-      color: var(--text2);
-      border: 1px solid var(--border2);
-    }
-
-    .cta-btn.secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* ── Responsive ─────────────────────────────────────── */
     @media (max-width: 600px) {
       body { padding: 0 14px 50px; }
       .header { padding: 30px 16px 24px; }
-      .proverb-card { padding: 20px 18px; }
-      .card-italian { font-size: 1.1rem; }
+      .module-card { padding: 20px 18px; }
+      .card-title { font-size: 1.05rem; }
       .cta-links { flex-direction: column; }
       .cta-btn { justify-content: center; }
-    }
-
-    /* ── Footer ─────────────────────────────────────────── */
-    .footer {
-      text-align: center;
-      padding: 32px 20px 0;
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-
-    .footer a {
-      color: var(--accent);
-      text-decoration: none;
     }
   </style>
 </head>
 <body>
-
 <div class="container">
 
   <!-- Header -->
   <div class="header">
     <div class="header-badge">
       <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-      意大利经典谚语 · Proverbi italiani
+      意大利语互动学习 · Impara l'italiano
     </div>
-    <h1 class="header-title">意大利语<span>经典俗语</span><br>互动学习</h1>
-    <p class="header-subtitle">Proverbi italiani · 边学边练 · 告别哑巴意语</p>
+    <h1 class="header-title">意大利语<span>互动学习</span></h1>
+    <p class="header-subtitle">Impara l'italiano giocando · 边学边练 · 告别哑巴意语</p>
     <div class="header-rule"></div>
     <div class="stats-row">
-      <div class="stat-chip">
-        <div class="dot"></div>
-        收录 2 条经典俗语
-      </div>
+      <div class="stat-chip"><div class="dot"></div>2 个学习板块</div>
       <div class="stat-chip">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg>
         持续更新中
@@ -408,31 +207,39 @@
     </div>
   </div>
 
-  <!-- Proverb cards -->
-  <div class="section-label">已收录 · Proverbi disponibili</div>
+  <!-- Module cards -->
+  <div class="section-label">学习板块 · Moduli di apprendimento</div>
   <div class="card-grid">
 
-    <a class="proverb-card rosso" href="chi-la-dura-la-vince-interactive-standalone.html">
-      <div class="card-left">
-        <div class="card-number">#01 · 谚语</div>
-        <div class="card-italian">Chi la dura la vince</div>
-        <div class="card-meaning">坚持就是胜利 · 持之以恒者终将获胜</div>
+    <!-- 意大利语谚语 -->
+    <a class="module-card rosso" href="proverbi.html">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      </div>
+      <div class="card-body">
+        <div class="card-eyebrow">Modulo 01</div>
+        <div class="card-title">意大利语谚语</div>
+        <div class="card-desc">Proverbi italiani · 经典俗语互动学习</div>
         <div class="card-tag">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          经典 · 互动版 · 含发音
+          2 条谚语 · 含互动练习
         </div>
       </div>
       <div class="card-arrow">→</div>
     </a>
 
-    <a class="proverb-card verde" href="in-bocca-al-lupo-interactive.html">
-      <div class="card-left">
-        <div class="card-number">#02 · 祝福语</div>
-        <div class="card-italian">In bocca al lupo!</div>
-        <div class="card-meaning">祝你好运！· Break a leg! · 意大利剧组开拍祝福</div>
+    <!-- 意大利语常用语 -->
+    <a class="module-card giallo" href="comuni.html">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--giallo)" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <div class="card-body">
+        <div class="card-eyebrow">Modulo 02</div>
+        <div class="card-title">意大利语常用语</div>
+        <div class="card-desc">Frasi comuni · 日常高频表达互动学习</div>
         <div class="card-tag">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          经典 · 互动版 · 含发音
+          新上线 · 含发音
         </div>
       </div>
       <div class="card-arrow">→</div>
@@ -445,25 +252,16 @@
   <!-- Coming soon -->
   <div class="section-label">即将上线 · Prossimamente</div>
   <div class="coming-soon-grid">
-
     <div class="coming-soon-card">
       <div class="cs-icon">🇮🇹</div>
-      <div class="cs-text">Chi si loda si dispiace · 自夸者必自损</div>
-      <div class="cs-tag">#03 · 谚语</div>
+      <div class="cs-text">意大利语语法速查 · Grammatica essentials</div>
+      <div class="cs-tag">Modulo 03</div>
     </div>
-
     <div class="coming-soon-card">
       <div class="cs-icon">🇮🇹</div>
-      <div class="cs-text">Chi ne sa ne sa, chi ne fa ne fa · 知之者不如行之者</div>
-      <div class="cs-tag">#04 · 谚语</div>
+      <div class="cs-text">意大利语情景对话 · Dialoghi quotidiani</div>
+      <div class="cs-tag">Modulo 04</div>
     </div>
-
-    <div class="coming-soon-card">
-      <div class="cs-icon">🇮🇹</div>
-      <div class="cs-text">Chi la fa la paia · 自己动手丰衣足食</div>
-      <div class="cs-tag">#05 · 谚语</div>
-    </div>
-
   </div>
 
   <div class="divider"></div>
@@ -473,22 +271,21 @@
     <div class="cta-title">抖音博主 @realrentao 倾情制作</div>
     <div class="cta-desc">更多意大利语学习内容，持续更新中</div>
     <div class="cta-links">
-      <a class="cta-btn primary" href="chi-la-dura-la-vince-interactive-standalone.html">
+      <a class="cta-btn primary" href="proverbi.html">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-        开始学习 #01
+        进入谚语板块
       </a>
-      <a class="cta-btn secondary" href="in-bocca-al-lupo-interactive.html">
-        继续学习 #02 →
+      <a class="cta-btn secondary" href="comuni.html">
+        进入常用语板块 →
       </a>
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
-    <p>意大利语经典俗语 · Proverbi italiani · 互动学习版</p>
-    <p style="margin-top:6px;">By <a href="https://github.com/realrentao/italiano-learning" target="_blank">@realrentao</a> · GitHub</p>
+    <p>意大利语互动学习 · Impara l'italiano giocando</p>
+    <p style="margin-top:6px;">By <a href="https://github.com/realrentao/italiano-learning" target="_blank">@realrentao</a> · GitHub Pages</p>
   </div>
 
-</div><!-- /container -->
+</div>
 </body>
 </html>
