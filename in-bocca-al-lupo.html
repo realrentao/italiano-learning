@@ -591,6 +591,61 @@
       .tab-btn { padding: 6px 12px; font-size: 0.78rem; }
     }
   </style>
+
+<script>
+// 微信浏览器音频解锁修复
+(function(){
+  var ua = navigator.userAgent;
+  var isWeChat = /MicroMessenger/i.test(ua);
+  if(!isWeChat) return;
+  
+  var unlocked = false;
+  var pendingPlay = [];
+  
+  // 保存原始play方法
+  var origPlay = HTMLMediaElement.prototype.play;
+  HTMLMediaElement.prototype.play = function(){
+    if(unlocked) return origPlay.call(this);
+    pendingPlay.push(this);
+    return Promise.resolve();
+  };
+  
+  function unlock(){
+    if(unlocked) return;
+    unlocked = true;
+    // 播放一个静音来解锁音频上下文
+    var a = new Audio("data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=");
+    a.volume=0;
+    a.play().catch(function(){});
+    // 播放所有待播放的音频
+    pendingPlay.forEach(function(audio){ origPlay.call(audio).catch(function(e){}); });
+    pendingPlay = [];
+    // 移除遮罩
+    var overlay = document.getElementById('wechat-overlay');
+    if(overlay) overlay.style.display='none';
+  }
+  
+  // 在用户首次交互时解锁
+  ['touchstart','click','touchend'].forEach(function(evt){
+    document.addEventListener(evt, function handler(){
+      unlock();
+      document.removeEventListener(evt, handler);
+    }, {once:true, passive:true});
+  });
+  
+  // 添加提示遮罩
+  document.addEventListener('DOMContentLoaded', function(){
+    var overlay = document.createElement('div');
+    overlay.id = 'wechat-overlay';
+    overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:99999;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;text-align:center;cursor:pointer;';
+    overlay.innerHTML = '<div>👆 点击屏幕开启音频播放</div>';
+    overlay.addEventListener('touchstart', function(e){ e.preventDefault(); unlock(); });
+    overlay.addEventListener('click', function(e){ e.preventDefault(); unlock(); });
+    document.body.appendChild(overlay);
+  });
+})();
+</script>
+
 </head>
 <body>
 
