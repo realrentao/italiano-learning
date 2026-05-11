@@ -5,287 +5,288 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>意大利语互动学习 · Impara l'italiano giocando</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #f5f4f0;
-      --bg2: #eeede8;
-      --surface: #ffffff;
-      --surface2: #f0efe9;
-      --accent: #c0392b;
-      --accent-dim: rgba(192,57,43,0.08);
-      --giallo: #d4a017;
-      --giallo-dim: rgba(212,160,23,0.1);
-      --giallo-border: rgba(212,160,23,0.3);
-      --verde: #1e7e34;
-      --verde-dim: rgba(30,126,52,0.08);
-      --verde-border: rgba(30,126,52,0.25);
-      --blu: #1a6fb4;
-      --blu-dim: rgba(26,111,180,0.08);
-      --blu-border: rgba(26,111,180,0.25);
-      --viola: #7b3db8;
-      --viola-dim: rgba(123,61,184,0.08);
-      --viola-border: rgba(123,61,184,0.25);
-      --text: #1a1a2e;
-      --text2: #3a3a5c;
-      --muted: #7a7a9a;
-      --border: rgba(0,0,0,0.07);
-      --border2: rgba(0,0,0,0.12);
-      --radius: 16px;
-      --radius-sm: 8px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
       font-family: 'Outfit', 'Noto Sans SC', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: linear-gradient(135deg, #f5f4f0 0%, #e8e6e1 100%);
       min-height: 100vh;
-      padding: 0 20px 60px;
-    }
-    .container { max-width: 720px; margin: 0 auto; padding-top: 0; }
-
-    /* Header */
-    .header { text-align: center; padding: 40px 20px 32px; }
-    .header-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--accent-dim);
-      border: 1px solid rgba(192,57,43,0.2);
-      border-radius: 100px; padding: 5px 14px;
-      font-size: 0.78rem; font-weight: 600;
-      color: var(--accent); letter-spacing: 0.02em;
-      margin-bottom: 20px;
-    }
-    .header-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      font-weight: 800; color: var(--text);
-      line-height: 1.2; margin-bottom: 12px;
-    }
-    .header-title span { color: var(--accent); }
-    .header-subtitle { font-size: 1rem; color: var(--muted); font-weight: 400; margin-bottom: 24px; }
-    .header-rule {
-      width: 60px; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--giallo));
-      border-radius: 2px; margin: 0 auto 28px;
+      color: #2c2c2c;
     }
 
-    /* Stats */
-    .stats-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
-    .stat-chip {
-      background: var(--surface); border: 1px solid var(--border2);
-      border-radius: 100px; padding: 6px 16px;
-      font-size: 0.82rem; font-weight: 500; color: var(--text2);
-      display: flex; align-items: center; gap: 5px;
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 20px 60px;
     }
-    .stat-chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--verde); }
 
-    /* Section label */
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #c0392b, #a33025);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 40px;
+      box-shadow: 0 8px 30px rgba(192, 57, 43, 0.3);
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #27ae60, #219a52);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #888;
+      font-weight: 400;
+    }
+
+    .section {
+      margin-bottom: 24px;
+    }
+
     .section-label {
-      font-size: 0.78rem; font-weight: 600; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 0.1em;
-      margin-bottom: 14px; padding-left: 2px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #c0392b;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      padding-left: 4px;
     }
 
-    /* Module cards */
-    .card-grid { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
-    .module-card {
-      background: var(--surface);
-      border: 1px solid var(--border2);
-      border-radius: var(--radius);
-      padding: 28px 28px;
-      text-decoration: none; color: inherit;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
       cursor: pointer;
-      position: relative; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
     }
-    .module-card::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-      border-radius: 4px 0 0 4px;
-    }
-    .module-card.rosso::before { background: var(--accent); }
-    .module-card.giallo::before { background: var(--giallo); }
-    .module-card.verde::before { background: var(--verde); }
-    .module-card.blu::before   { background: var(--blu); }
 
-    .module-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
     }
-    .module-card:hover .card-arrow { transform: translateX(4px); color: var(--accent); }
 
     .card-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
     }
-    .rosso .card-icon { background: var(--accent-dim); }
-    .giallo .card-icon { background: var(--giallo-dim); }
-    .verde .card-icon { background: var(--verde-dim); }
-    .blu .card-icon   { background: var(--blu-dim); }
 
-    .card-body { flex: 1; }
-    .card-eyebrow { font-size: 0.72rem; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
-    .card-title { font-size: 1.15rem; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 4px; }
-    .card-desc { font-size: 0.85rem; color: var(--muted); }
-    .card-tag {
-      display: inline-flex; align-items: center; gap: 4px;
-      background: var(--giallo-dim); border: 1px solid var(--giallo-border);
-      border-radius: 100px; padding: 3px 10px;
-      font-size: 0.72rem; font-weight: 600; color: #8a6500;
-      margin-top: 8px;
+    .card-text h2 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin-bottom: 4px;
     }
-    .card-arrow { font-size: 1.4rem; color: var(--border2); flex-shrink: 0; transition: transform 0.18s ease, color 0.18s ease; line-height: 1; }
 
-    /* Coming soon */
-    .coming-soon-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 48px; }
+    .card-text p {
+      font-size: 13px;
+      color: #999;
+    }
+
+    .card-arrow {
+      margin-left: auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #f5f4f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+      font-size: 14px;
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+
+    .card:hover .card-arrow {
+      background: #c0392b;
+      color: white;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .footer a {
+      color: #c0392b;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer p {
+      font-size: 12px;
+      color: #bbb;
+      margin-top: 10px;
+    }
+
+    .coming-soon {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .coming-soon-label {
+      font-size: 14px;
+      color: #bbb;
+      margin-bottom: 20px;
+    }
+
+    .coming-soon-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
     .coming-soon-card {
-      background: var(--surface2); border: 1px dashed var(--border2);
-      border-radius: var(--radius); padding: 18px 24px;
-      display: flex; align-items: center; gap: 14px;
+      background: white;
+      border-radius: 12px;
+      padding: 20px 16px;
+      opacity: 0.6;
     }
-    .cs-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-    .cs-text { font-size: 0.9rem; color: var(--muted); font-weight: 400; }
-    .cs-tag { margin-left: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 3px 10px; font-size: 0.7rem; color: var(--muted); white-space: nowrap; }
 
-    /* CTA */
-    .cta-box {
-      background: linear-gradient(135deg, var(--accent-dim), rgba(192,57,43,0.04));
-      border: 1px solid rgba(192,57,43,0.15);
-      border-radius: var(--radius); padding: 24px 28px; text-align: center;
+    .coming-soon-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
     }
-    .cta-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    .cta-desc { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
-    .cta-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .cta-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 9px 20px; border-radius: 100px;
-      font-size: 0.85rem; font-weight: 600;
-      text-decoration: none; transition: all 0.18s ease;
+
+    .coming-soon-card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin-bottom: 4px;
     }
-    .cta-btn.primary { background: var(--accent); color: white; }
-    .cta-btn.primary:hover { background: #a93226; transform: translateY(-1px); }
-    .cta-btn.secondary { background: var(--surface); color: var(--text2); border: 1px solid var(--border2); }
-    .cta-btn.secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    .divider { height: 1px; background: var(--border); margin: 8px 0 40px; }
-
-    /* Footer */
-    .footer { text-align: center; padding: 32px 20px 0; color: var(--muted); font-size: 0.78rem; }
-    .footer a { color: var(--accent); text-decoration: none; }
+    .coming-soon-card p {
+      font-size: 11px;
+      color: #bbb;
+    }
 
     @media (max-width: 600px) {
-      body { padding: 0 14px 50px; }
-      .header { padding: 30px 16px 24px; }
-      .module-card { padding: 20px 18px; }
-      .card-title { font-size: 1.05rem; }
-      .cta-links { flex-direction: column; }
-      .cta-btn { justify-content: center; }
+      .container { padding: 40px 16px 40px; }
+      h1 { font-size: 28px; }
+      .card { padding: 20px; }
+      .card-icon { width: 48px; height: 48px; font-size: 24px; border-radius: 12px; }
+      .card-text h2 { font-size: 16px; }
+      .coming-soon-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-<div class="container">
-
-  <!-- Header -->
-  <div class="header">
-    <div class="header-badge">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-      意大利语互动学习 · Impara l'italiano
+  <div class="container">
+    <div class="header">
+      <div class="logo">🇮🇹</div>
+      <div class="badge">互动学习</div>
+      <h1>意大利语学习</h1>
+      <p class="subtitle">Impara l'italiano giocando</p>
     </div>
-    <h1 class="header-title">意大利语<span>互动学习</span></h1>
-    <p class="header-subtitle">Impara l'italiano giocando · 边学边练 · 告别哑巴意语</p>
-    <div class="header-rule"></div>
-    <div class="stats-row">
-      <div class="stat-chip"><div class="dot"></div>2 个学习板块</div>
-      <div class="stat-chip">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg>
-        持续更新中
-      </div>
-    </div>
-  </div>
-
-  <!-- Module cards -->
-  <div class="section-label">学习板块 · Moduli di apprendimento</div>
-  <div class="card-grid">
 
     <!-- 意大利语谚语 -->
-    <a class="module-card rosso" href="proverbi.html">
-      <div class="card-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-      </div>
-      <div class="card-body">
-        <div class="card-eyebrow">Modulo 01</div>
-        <div class="card-title">意大利语谚语</div>
-        <div class="card-desc">Proverbi italiani · 经典俗语互动学习</div>
-        <div class="card-tag">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          2 条谚语 · 含互动练习
+    <div class="section">
+      <div class="section-label">MODULO 01</div>
+      <div class="card" onclick="location.href='proverbi.html'">
+        <div class="card-icon" style="background: linear-gradient(135deg, #c0392b, #a33025);">
+          📜
         </div>
+        <div class="card-text">
+          <h2>意大利语谚语</h2>
+          <p>Proverbi italiani · 经典俗语</p>
+        </div>
+        <div class="card-arrow">→</div>
       </div>
-      <div class="card-arrow">→</div>
-    </a>
+    </div>
 
     <!-- 意大利语常用语 -->
-    <a class="module-card giallo" href="comuni.html">
-      <div class="card-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--giallo)" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <div class="section">
+      <div class="section-label">MODULO 02</div>
+      <div class="card" onclick="location.href='comuni.html'">
+        <div class="card-icon" style="background: linear-gradient(135deg, #d4a017, #b8860b);">
+          💬
+        </div>
+        <div class="card-text">
+          <h2>意大利语常用语</h2>
+          <p>Frasi comuni · 日常高频表达</p>
+        </div>
+        <div class="card-arrow">→</div>
       </div>
-      <div class="card-body">
-        <div class="card-eyebrow">Modulo 02</div>
-        <div class="card-title">意大利语常用语</div>
-        <div class="card-desc">Frasi comuni · 日常高频表达互动学习</div>
-        <div class="card-tag">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          新上线 · 含发音
+    </div>
+
+    <!-- 意大利语情景对话 -->
+    <div class="section">
+      <div class="section-label">MODULO 03</div>
+      <div class="card" onclick="location.href='dialoghi.html'">
+        <div class="card-icon" style="background: linear-gradient(135deg, #e67e22, #d35400);">
+          🗣️
+        </div>
+        <div class="card-text">
+          <h2>意大利语情景对话</h2>
+          <p>Dialoghi quotidiani · 日常生活实用对话</p>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- Coming Soon -->
+    <div class="coming-soon">
+      <div class="coming-soon-label">更多内容 敬请期待</div>
+      <div class="coming-soon-grid">
+        <div class="coming-soon-card">
+          <div class="coming-soon-icon">📝</div>
+          <h3>意大利语语法速查</h3>
+          <p>Grammatica essentials</p>
         </div>
       </div>
-      <div class="card-arrow">→</div>
-    </a>
-
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- Coming soon -->
-  <div class="section-label">即将上线 · Prossimamente</div>
-  <div class="coming-soon-grid">
-    <div class="coming-soon-card">
-      <div class="cs-icon">🇮🇹</div>
-      <div class="cs-text">意大利语语法速查 · Grammatica essentials</div>
-      <div class="cs-tag">Modulo 03</div>
     </div>
-    <div class="coming-soon-card">
-      <div class="cs-icon">🇮🇹</div>
-      <div class="cs-text">意大利语情景对话 · Dialoghi quotidiani</div>
-      <div class="cs-tag">Modulo 04</div>
+
+    <div class="footer">
+      <a href="https://github.com/realrentao/italiano-learning" target="_blank">GitHub · 源码仓库</a>
+      <p>抖音博主 @涛子办事处</p>
     </div>
   </div>
-
-  <div class="divider"></div>
-
-  <!-- CTA -->
-  <div class="cta-box">
-    <div class="cta-title">抖音博主 @涛子办事处 倾情制作</div>
-    <div class="cta-desc">更多意大利语学习内容，持续更新中</div>
-    <div class="cta-links">
-      <a class="cta-btn primary" href="proverbi.html">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-        进入谚语板块
-      </a>
-      <a class="cta-btn secondary" href="comuni.html">
-        进入常用语板块 →
-      </a>
-    </div>
-  </div>
-
-  <div class="footer">
-    <p>意大利语互动学习 · Impara l'italiano giocando</p>
-    <p style="margin-top:6px;">By <a href="https://github.com/realrentao/italiano-learning" target="_blank">@涛子办事处</a> · GitHub Pages</p>
-  </div>
-
-</div>
 </body>
 </html>
