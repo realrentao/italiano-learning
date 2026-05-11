@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>意大利语情景对话 · Dialoghi quotidiani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+      background: linear-gradient(135deg, #f5f4f0 0%, #e8e6e1 100%);
+      min-height: 100vh;
+      color: #2c2c2c;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #666;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-decoration: none;
+      z-index: 100;
+      transition: all 0.3s;
+    }
+    .back-btn:hover {
+      background: #c0392b;
+      color: white;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 20px 40px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .label {
+      display: inline-block;
+      background: linear-gradient(135deg, #e67e22, #d35400);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #666;
+      font-weight: 400;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .card-number {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .card:nth-child(1) .card-number { background: linear-gradient(135deg, #e67e22, #d35400); }
+    .card:nth-child(2) .card-number { background: linear-gradient(135deg, #3498db, #2980b9); }
+    .card:nth-child(3) .card-number { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+    .card:nth-child(4) .card-number { background: linear-gradient(135deg, #1abc9c, #16a085); }
+
+    .card-content {
+      flex: 1;
+    }
+
+    .card-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin-bottom: 6px;
+    }
+
+    .card-subtitle {
+      font-size: 14px;
+      color: #888;
+    }
+
+    .card-arrow {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f5f4f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #999;
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+
+    .card:hover .card-arrow {
+      background: #c0392b;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 70px 16px 30px; }
+      h1 { font-size: 28px; }
+      .card { padding: 20px; gap: 16px; }
+      .card-number { width: 50px; height: 50px; font-size: 20px; }
+      .card-title { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-btn">← 返回主页</a>
+  
+  <div class="container">
+    <div class="header">
+      <div class="label">MODULO 03 · 互动学习</div>
+      <h1>意大利语情景对话</h1>
+      <p class="subtitle">Dialoghi quotidiani · 日常生活实用对话</p>
+    </div>
+
+    <div class="cards">
+      <a href="#" class="card" onclick="alert('即将上线，敬请期待！'); return false;">
+        <div class="card-number">01</div>
+        <div class="card-content">
+          <div class="card-title">在餐厅 · Al ristorante</div>
+          <div class="card-subtitle">点餐、结账、餐厅常用表达</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a href="#" class="card" onclick="alert('即将上线，敬请期待！'); return false;">
+        <div class="card-number">02</div>
+        <div class="card-content">
+          <div class="card-title">问路与出行 · Chiedere indicazioni</div>
+          <div class="card-subtitle">方向、距离、交通工具</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a href="#" class="card" onclick="alert('即将上线，敬请期待！'); return false;">
+        <div class="card-number">03</div>
+        <div class="card-content">
+          <div class="card-title">购物与砍价 · Shopping e mercanteggiare</div>
+          <div class="card-subtitle">价格、尺寸、付款方式</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a href="#" class="card" onclick="alert('即将上线，敬请期待！'); return false;">
+        <div class="card-number">04</div>
+        <div class="card-content">
+          <div class="card-title">海关与入境 · Alla dogana</div>
+          <div class="card-subtitle">护照、安检、申报物品</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
