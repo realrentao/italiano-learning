@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在餐厅 · Al ristorante</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+      background: linear-gradient(135deg, #f5f4f0 0%, #e8e6e1 100%);
+      min-height: 100vh;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #666;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-decoration: none;
+      z-index: 100;
+      transition: all 0.3s;
+    }
+    .back-btn:hover { background: #e67e22; color: white; }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 20px 40px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .label {
+      display: inline-block;
+      background: linear-gradient(135deg, #e67e22, #d35400);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #666;
+    }
+
+    .dialogue-section {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .dialogue-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .dialogue-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .speaker {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .cliente .speaker { background: linear-gradient(135deg, #3498db, #2980b9); }
+    .cameriere .speaker { background: linear-gradient(135deg, #e67e22, #d35400); }
+
+    .dialogue-content {
+      flex: 1;
+    }
+
+    .speaker-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    .italiano {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin-bottom: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .play-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e67e22, #d35400);
+      border: none;
+      color: white;
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .play-btn:hover { transform: scale(1.1); }
+
+    .cinese {
+      font-size: 14px;
+      color: #888;
+    }
+
+    .vocabulary {
+      background: linear-gradient(135deg, #fef9e7, #fdebd0);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    .vocab-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #d35400;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .vocab-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: white;
+      border-radius: 10px;
+    }
+
+    .vocab-it { font-weight: 600; color: #2c2c2c; }
+    .vocab-zh { color: #888; font-size: 14px; }
+
+    @media (max-width: 600px) {
+      .container { padding: 70px 16px 30px; }
+      h1 { font-size: 26px; }
+      .dialogue-section { padding: 20px; }
+      .italiano { font-size: 16px; }
+      .vocab-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="dialoghi.html" class="back-btn">← 返回对话列表</a>
+  
+  <div class="container">
+    <div class="header">
+      <div class="label">MODULO 03 · 情景对话</div>
+      <h1>在餐厅</h1>
+      <p class="subtitle">Al ristorante</p>
+    </div>
+
+    <div class="dialogue-section">
+      <!-- 对话1 -->
+      <div class="dialogue-item cliente">
+        <div class="speaker">👤</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">顾客 Cliente</div>
+          <div class="italiano" onclick="speak(this)">
+            Buonasera, vorrei un tavolo per due, per favore.
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">您好，麻烦给我们一张两人桌。</div>
+        </div>
+      </div>
+
+      <div class="dialogue-item cameriere">
+        <div class="speaker">👨‍💼</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">服务员 Cameriere</div>
+          <div class="italiano" onclick="speak(this)">
+            Buonasera! Certo, vi posso offrire questo tavolo vicino alla finestra. Il menu, prego.
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">您好！没问题，这张靠窗的桌子怎么样？请看菜单。</div>
+        </div>
+      </div>
+
+      <!-- 对话2 -->
+      <div class="dialogue-item cliente">
+        <div class="speaker">👤</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">顾客 Cliente</div>
+          <div class="italiano" onclick="speak(this)">
+            Grazie. Cosa mi consiglia oggi?
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">谢谢。今天有什么推荐的吗？</div>
+        </div>
+      </div>
+
+      <div class="dialogue-item cameriere">
+        <div class="speaker">👨‍💼</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">服务员 Cameriere</div>
+          <div class="italiano" onclick="speak(this)">
+            Oggi abbiamo un ottimo risotto ai funghi porcini e spaghetti alle vongole. Sono piatti tipici della nostra regione!
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">今天有很棒的牛肝菌烩饭和蛤蜊意面。是我们当地的特色菜！</div>
+        </div>
+      </div>
+
+      <!-- 对话3 -->
+      <div class="dialogue-item cliente">
+        <div class="speaker">👤</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">顾客 Cliente</div>
+          <div class="italiano" onclick="speak(this)">
+            Mmm, sounds delicious! Prendo il risotto ai funghi e una bottiglia di vino rosso locale.
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">听起来太棒了！我要一份牛肝菌烩饭，再来一瓶当地红酒。</div>
+        </div>
+      </div>
+
+      <div class="dialogue-item cameriere">
+        <div class="speaker">👨‍💼</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">服务员 Cameriere</div>
+          <div class="italiano" onclick="speak(this)">
+            Ottima scelta! Desiderate anche un antipasto o un dolce?
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">好选择！要不要来点前菜或甜点？</div>
+        </div>
+      </div>
+
+      <!-- 对话4 -->
+      <div class="dialogue-item cliente">
+        <div class="speaker">👤</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">顾客 Cliente</div>
+          <div class="italiano" onclick="speak(this)">
+            Sì, come antipasto vorremmo una caprese, e per dolce... cosa consiglia?
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">好的，前菜要一份卡普雷塞沙拉，甜点的话...您推荐什么？</div>
+        </div>
+      </div>
+
+      <div class="dialogue-item cameriere">
+        <div class="speaker">👨‍💼</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">服务员 Cameriere</div>
+          <div class="italiano" onclick="speak(this)">
+            Il tiramisù della casa è eccezionale! Lo preparo con il nostro caffè locale.
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">店里的提拉米苏特别好吃！是我用当地咖啡现做的。</div>
+        </div>
+      </div>
+
+      <!-- 对话5 -->
+      <div class="dialogue-item cliente">
+        <div class="speaker">👤</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">顾客 Cliente</div>
+          <div class="italiano" onclick="speak(this)">
+            Perfetto! Allora un tiramisù per favore. Dov'è il bagno?
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">太好了！那就来一份提拉米苏。请问洗手间在哪？</div>
+        </div>
+      </div>
+
+      <div class="dialogue-item cameriere">
+        <div class="speaker">👨‍💼</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">服务员 Cameriere</div>
+          <div class="italiano" onclick="speak(this)">
+            Il bagno è in fondo a destra, dopo il bancone. Buon appetito!
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">洗手间在尽头右边，穿过吧台就到了。祝您用餐愉快！</div>
+        </div>
+      </div>
+
+      <!-- 买单 -->
+      <div class="dialogue-item cliente">
+        <div class="speaker">👤</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">顾客 Cliente</div>
+          <div class="italiano" onclick="speak(this)">
+            Il conto, per favore! È stato tutto delizioso.
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">买单！谢谢，这顿饭太好吃了。</div>
+        </div>
+      </div>
+
+      <div class="dialogue-item cameriere">
+        <div class="speaker">👨‍💼</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">服务员 Cameriere</div>
+          <div class="italiano" onclick="speak(this)">
+            Grazie a voi! Il conto è di 65 euro. Pagate in contanti o con carta?
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">谢谢！一共65欧元。现金还是刷卡？</div>
+        </div>
+      </div>
+
+      <div class="dialogue-item cliente">
+        <div class="speaker">👤</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">顾客 Cliente</div>
+          <div class="italiano" onclick="speak(this)">
+            Con carta, grazie. Può split the bill? Vorremmo pagare separatamente.
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">刷卡，谢谢。可以分开结账吗？我们想AA制。</div>
+        </div>
+      </div>
+
+      <div class="dialogue-item cameriere">
+        <div class="speaker">👨‍💼</div>
+        <div class="dialogue-content">
+          <div class="speaker-label">服务员 Cameriere</div>
+          <div class="italiano" onclick="speak(this)">
+            Certo! Allora 32.50 euro ciascuno. Grazie e arrivederci!
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="cinese">没问题！每人32.50欧元。谢谢光临，再见！</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 词汇表 -->
+    <div class="vocabulary">
+      <div class="vocab-title">📖 重点词汇 Vocabolario</div>
+      <div class="vocab-grid">
+        <div class="vocab-item"><span class="vocab-it">un tavolo</span><span class="vocab-zh">一张桌子</span></div>
+        <div class="vocab-item"><span class="vocab-it">il menu</span><span class="vocab-zh">菜单</span></div>
+        <div class="vocab-item"><span class="vocab-it">consigliare</span><span class="vocab-zh">推荐</span></div>
+        <div class="vocab-item"><span class="vocab-it">il risotto</span><span class="vocab-zh">烩饭</span></div>
+        <div class="vocab-item"><span class="vocab-it">gli spaghetti</span><span class="vocab-zh">意面</span></div>
+        <div class="vocab-item"><span class="vocab-it">il vino rosso</span><span class="vocab-zh">红酒</span></div>
+        <div class="vocab-item"><span class="vocab-it">l'antipasto</span><span class="vocab-zh">前菜</span></div>
+        <div class="vocab-item"><span class="vocab-it">il dolce</span><span class="vocab-zh">甜点</span></div>
+        <div class="vocab-item"><span class="vocab-it">il bagno</span><span class="vocab-zh">洗手间</span></div>
+        <div class="vocab-item"><span class="vocab-it">il conto</span><span class="vocab-zh">账单</span></div>
+        <div class="vocab-item"><span class="vocab-it">in contanti</span><span class="vocab-zh">现金</span></div>
+        <div class="vocab-item"><span class="vocab-it">con carta</span><span class="vocab-zh">刷卡</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 简单的文字转语音功能（使用Web Speech API）
+    function speak(element) {
+      const italiano = element.childNodes[0].textContent.trim();
+      
+      // 创建语音合成
+      if ('speechSynthesis' in window) {
+        // 取消之前的朗读
+        speechSynthesis.cancel();
+        
+        const utterance = new SpeechSynthesisUtterance(italiano);
+        utterance.lang = 'it-IT';  // 意大利语
+        utterance.rate = 0.85;     // 稍慢的语速
+        utterance.pitch = 1;
+        
+        // 尝试找到意大利语语音
+        const voices = speechSynthesis.getVoices();
+        const italianVoice = voices.find(v => v.lang.startsWith('it'));
+        if (italianVoice) {
+          utterance.voice = italianVoice;
+        }
+        
+        speechSynthesis.speak(utterance);
+      } else {
+        alert('您的浏览器不支持语音合成功能');
+      }
+    }
+    
+    // 页面加载时预加载语音列表
+    if ('speechSynthesis' in window) {
+      speechSynthesis.getVoices();
+    }
+  </script>
+</body>
+</html>
