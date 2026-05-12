@@ -13,6 +13,7 @@
       --accent: #c0392b; --accent-dim: rgba(192,57,43,0.08); --accent-border: rgba(192,57,43,0.2);
       --giallo: #d4a017; --giallo-dim: rgba(212,160,23,0.1); --giallo-border: rgba(212,160,23,0.3);
       --verde: #1e7e34; --verde-dim: rgba(30,126,52,0.08); --verde-border: rgba(30,126,52,0.25);
+      --cyan: #0e7c7b; --cyan-dim: rgba(14,124,123,0.08); --cyan-border: rgba(14,124,123,0.25);
       --blu: #1a6fb4; --blu-dim: rgba(26,111,180,0.08); --blu-border: rgba(26,111,180,0.25);
       --text: #1a1a2e; --text2: #3a3a5c; --muted: #7a7a9a;
       --border: rgba(0,0,0,0.07); --border2: rgba(0,0,0,0.12);
@@ -45,6 +46,7 @@
     .proverb-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 4px 0 0 4px; }
     .proverb-card.rosso::before { background: var(--accent); }
     .proverb-card.verde::before { background: var(--verde); }
+    .proverb-card.cyan::before { background: #0e7c7b; }
     .proverb-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
     .proverb-card:hover .card-arrow { transform: translateX(4px); color: var(--accent); }
     .card-left { flex: 1; }
@@ -108,7 +110,7 @@
     <p class="header-subtitle">Proverbi italiani · 边学边练 · 告别哑巴意语</p>
     <div class="header-rule"></div>
     <div class="stats-row">
-      <div class="stat-chip"><div class="dot"></div>收录 3 条经典俗语</div>
+      <div class="stat-chip"><div class="dot"></div>收录 4 条经典俗语</div>
       <div class="stat-chip">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 10"/><path d="M12 6v6l4 2"/></svg>
         持续更新中
@@ -159,6 +161,19 @@
       <div class="card-arrow">→</div>
     </a>
 
+    <a class="proverb-card cyan" href="non-tutte-le-ciambelle-riescono-col-buco.html">
+      <div class="card-left">
+        <div class="card-number">#04 &middot; 谚语</div>
+        <div class="card-italian">Non tutte le ciambelle riescono col buco</div>
+        <div class="card-meaning">并非所有甜甜圈都能带洞 &middot; 事难十尽美</div>
+        <div class="card-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.86 1.18 6.88L12 17.77l-6.18 3.05L7 14.14 2 9.27l6.91-3.01L12 2z"/></svg>
+          经典 &middot; 互动版 &middot; 含发音
+        </div>
+      </div>
+      <div class="card-arrow">&rarr;</div>
+    </a>
+
   </div>
 
   <div class="divider"></div>
@@ -181,6 +196,19 @@
       <div class="cs-text">Chi la fa la paia · 自己动手丰衣足食</div>
       <div class="cs-tag">#06 · 谚语</div>
     </div>
+    <a class="proverb-card cyan" href="non-tutte-le-ciambelle-riescono-col-buco.html">
+      <div class="card-left">
+        <div class="card-number">#04 &middot; 谚语</div>
+        <div class="card-italian">Non tutte le ciambelle riescono col buco</div>
+        <div class="card-meaning">并非所有甜甜圈都能带洞 &middot; 事难十尽美</div>
+        <div class="card-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.86 1.18 6.88L12 17.77l-6.18 3.05L7 14.14 2 9.27l6.91-3.01L12 2z"/></svg>
+          经典 &middot; 互动版 &middot; 含发音
+        </div>
+      </div>
+      <div class="card-arrow">&rarr;</div>
+    </a>
+
   </div>
 
   <div class="divider"></div>
@@ -197,6 +225,7 @@
       <a class="cta-btn secondary" href="in-bocca-al-lupo.html">
         继续学习 #02 →
       </a>
+      <a class="cta-btn secondary" href="non-tutte-le-ciambelle-riescono-col-buco.html">继续学习 #04 &rarr;</a>
     </div>
   </div>
 
