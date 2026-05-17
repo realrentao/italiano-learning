@@ -452,6 +452,11 @@
     .quiz-result.correct { background: var(--verde-dim); color: var(--verde); border: 1px solid var(--verde-border); }
     .quiz-result.wrong { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(192,57,43,0.25); }
 
+    /* ── Fill-in-the-blank ───────────────────────── */
+    #fillInput { transition: border-color 0.2s, background 0.2s; }
+    #fillInput:focus { border-bottom-color: var(--viola); background: var(--viola-dim); border-radius: 6px 6px 0 0; }
+    #fillInput:empty::before { content: '点击输入答案...'; color: var(--muted); font-weight: 400; }
+
     /* ── Labels ──────────────────────────────────── */
     .label-giallo { background: var(--giallo-dim); color: var(--giallo); border: 1px solid var(--giallo-border); }
     .label-rosso { background: var(--rosso-dim); color: var(--rosso); border: 1px solid var(--rosso-border); }
@@ -926,6 +931,89 @@
     </div>
   </div>
 
+  <!-- 🆕 补充内容：Significato · Uso · 注意 · Esempio · Nota culturale -->
+
+  <!-- 📖 Significato 详解 -->
+  <div class="card">
+    <div class="card-title viola">📖 Significato · 详解</div>
+    <div style="background: linear-gradient(135deg, var(--viola-dim), rgba(123,61,184,0.04)); border: 1px solid var(--viola-border); border-radius: 12px; padding: 20px 24px;">
+      <div style="font-family:'Noto Serif SC',serif; font-size:1.1rem; font-weight:600; color:var(--text); margin-bottom:12px; line-height:1.6;">
+        坚持就是胜利 → 只要能够持之以恒、忍受困难并坚持到底，最终就能获得成功。
+      </div>
+      <p style="font-size:0.9rem; color:var(--text2); line-height:1.8; margin:0;">
+        强调<strong style="color:var(--viola);">毅力</strong>与<strong style="color:var(--viola);">韧性</strong>的重要性，提醒人们在面对挫折、疲劳或看似无望的局面时，不要轻易放弃，因为胜利往往属于那些最能坚持的人。适用于学习、竞技、职场攻坚、个人目标等需要<strong style="color:var(--viola);">长期奋斗</strong>的情境。
+      </p>
+    </div>
+  </div>
+
+  <!-- 🗣 Uso 使用场景 -->
+  <div class="card">
+    <div class="card-title cyan">🗣 Uso · 使用场景</div>
+    <ul style="font-size:0.92rem; color:var(--text2); line-height:2; padding-left:20px; margin:0;">
+      <li>当自己或他人因长期努力而感到疲惫、想要放弃时，用来<strong style="color:var(--cyan);">互相打气</strong>。</li>
+      <li>可用于<strong style="color:var(--cyan);">体育比赛</strong>（鼓励队友坚持到最后一秒）、<strong style="color:var(--cyan);">语言学习</strong>（鼓励自己每天打卡）、<strong style="color:var(--cyan);">职场项目</strong>（鼓励团队攻克难关）。</li>
+      <li>语气充满<strong style="color:var(--cyan);">力量感和鼓舞性</strong>，是意大利语中最经典的励志格言之一。</li>
+    </ul>
+  </div>
+
+  <!-- ⚠️ 语法要点 -->
+  <div class="card">
+    <div class="card-title arancione">⚠️ 语法要点 · Attenzione</div>
+    <div style="font-size:0.92rem; color:var(--text2); line-height:1.9;">
+      <p>此习语中的 <strong style="color:var(--arancione);">durare</strong> 意为"持续、持久、忍受"，<strong style="color:var(--arancione);">vincere</strong> 意为"战胜、获胜"。</p>
+      <p>与英文 <em>He who perseveres wins</em> 或 <em>Persistence pays off</em> 含义相近，但意大利语版本更加简洁有力。</p>
+
+      <div class="note-box arancione" style="margin-top:16px;">
+        <div class="note-label" style="color:var(--arancione);">结构解析</div>
+        <div class="note-text">
+          <strong style="color:var(--arancione);">Chi la dura</strong> = 坚持（下去）的人（关系从句，<em>la</em> 是虚指代词，代指某种状态或情况）。<br>
+          <strong style="color:var(--arancione);">la vince</strong> = 获胜（<em>vincere</em> 的第三人称单数）。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📚 Esempio 例句对话 -->
+  <div class="card">
+    <div class="card-title viola">📚 Esempio · 例句对话</div>
+
+    <div style="margin-bottom:24px;">
+      <div style="font-weight:700; color:var(--viola); margin-bottom:10px; font-size:0.9rem;">Esempio 1</div>
+      <div style="background:var(--surface2); border-radius:12px; padding:18px 22px; border-left:4px solid var(--viola);">
+        <div style="font-size:0.95rem; color:var(--text); line-height:1.8; margin-bottom:10px;">
+          <strong>A:</strong> Studio l'italiano da un anno ma a volte mi sento ancora insicuro quando parlo…<br>
+          <span style="color:var(--muted); font-size:0.82rem;">（我学意大利语一年了，但说话时有时还是没信心…）</span>
+        </div>
+        <div style="height:1px; background:var(--border); margin:12px 0;"></div>
+        <div style="font-size:0.95rem; color:var(--text); line-height:1.8;">
+          <strong>B:</strong> Non mollare! <strong style="color:var(--viola);">Chi la dura la vince.</strong> Continua a esercitarti e vedrai grandi miglioramenti.<br>
+          <span style="color:var(--muted); font-size:0.82rem;">（别放弃！坚持就是胜利。继续练习，你会看到巨大的进步。）</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-weight:700; color:var(--viola); margin-bottom:10px; font-size:0.9rem;">Esempio 2（含中文翻译）</div>
+      <div style="background:var(--surface2); border-radius:12px; padding:18px 22px; border-left:4px solid var(--viola);">
+        <div style="font-size:0.95rem; color:var(--text); line-height:1.8;">
+          La strada per il successo è piena di ostacoli, ma ricorda: <strong style="color:var(--viola);">chi la dura la vince.</strong> La costanza è la chiave di tutto.<br>
+          <span style="color:var(--muted); font-size:0.82rem;">（成功之路充满障碍，但记住：坚持就是胜利。恒心是一切的关键。）</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 💡 Nota culturale 文化小知识 -->
+  <div class="card">
+    <div class="card-title cyan">💡 Nota culturale · 文化小知识</div>
+    <div style="font-size:0.92rem; color:var(--text2); line-height:1.9;">
+      <p>这条习语在意大利语教学中常被用来鼓励学生，特别是在学习曲线变得陡峭、学生感到挫败时。</p>
+      <p>意大利人性格热情，有时容易<strong style="color:var(--cyan);">三分钟热度</strong>，因此这条习语在文化中起到了<strong style="color:var(--cyan);">平衡作用</strong>，提醒人们激情过后需要的是持久的耐力。</p>
+      <p>与 <em>Roma non fu fatta in un giorno</em>（罗马不是一天建成的）形成完美的互补：前者强调<strong style="color:var(--cyan);">时间的长度</strong>，后者强调<strong style="color:var(--cyan);">意志的坚韧</strong>。两者结合，构成了意大利人关于"长期奋斗"的完整哲学。</p>
+      <p>在意大利的<strong style="color:var(--cyan);">体育赛事</strong>中，这句话是球迷和教练最常喊的口号之一，用来激励球队在落后时反败为胜。</p>
+    </div>
+  </div>
+
   <!-- ④ 小测验 -->
   <div class="quiz-card">
     <div class="card-title viola">随堂测验 · 检验学习成果</div>
@@ -952,6 +1040,56 @@
       </div>
       <div class="quiz-result" id="result-quiz1">
         <strong>答案正确！</strong> 第一个 "la" 是中性代词，代指 la difficoltà（困难），常见于意大利语谚语中的固定用法。
+      </div>
+    </div>
+  </div>
+
+  <!-- ✏️ 今日练习 -->
+  <div class="quiz-card">
+    <div class="card-title viola">✏️ 今日练习 · Esercizio</div>
+
+    <!-- 选择题 -->
+    <div id="quiz2" style="margin-bottom:24px;">
+      <div class="quiz-question"><strong>1️⃣ 选择题：</strong>Cosa significa "Chi la dura la vince"?</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkAnswer(this, false, 'quiz2')">
+          <div class="quiz-option-marker">A</div>
+          <div>Chi è forte fisicamente vince sempre</div>
+        </div>
+        <div class="quiz-option" onclick="checkAnswer(this, true, 'quiz2')">
+          <div class="quiz-option-marker">B</div>
+          <div>Chi continua a insistere nonostante le difficoltà otterrà successo</div>
+        </div>
+        <div class="quiz-option" onclick="checkAnswer(this, false, 'quiz2')">
+          <div class="quiz-option-marker">C</div>
+          <div>La vittoria arriva solo ai giovani</div>
+        </div>
+        <div class="quiz-option" onclick="checkAnswer(this, false, 'quiz2')">
+          <div class="quiz-option-marker">D</div>
+          <div>Bisogna durare poco per vincere</div>
+        </div>
+      </div>
+      <div class="quiz-result" id="result-quiz2">
+        <strong>✅ 正确答案：</strong>B) Chi continua a insistere nonostante le difficoltà otterrà successo
+      </div>
+    </div>
+
+    <!-- 填空题 -->
+    <div id="quiz3">
+      <div class="quiz-question"><strong>2️⃣ 填空：</strong>完成下列句子</div>
+      <div style="background:var(--surface2);border-radius:12px;padding:20px 24px;margin-top:12px;">
+        <div style="font-size:0.95rem;color:var(--text);line-height:1.8;margin-bottom:14px;">
+          Non smettere di provare a suonare quel pezzo al pianoforte, anche se è difficile.
+          <br><br>
+          <span id="fillInput" style="display:inline-block;min-width:200px;border-bottom:2px dashed var(--viola);padding:4px 8px;color:var(--viola);font-weight:600;outline:none;cursor:text;" contenteditable="true" onkeydown="if(event.key==='Enter'){event.preventDefault();checkFill()}">___________________</span>
+          <br><br>
+          : alla fine ci riuscirai perfettamente.
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:10px;">
+          <button class="audio-btn" style="margin:0;" onclick="checkFill()">✓ 检查答案</button>
+          <span id="fillHint" style="font-size:0.82rem;color:var(--muted);display:none;">提示：填入 <em>Chi la dura la vince</em></span>
+        </div>
+        <div id="fillResult" style="margin-top:12px;font-size:0.9rem;display:none;padding:12px 16px;border-radius:8px;"></div>
       </div>
     </div>
   </div>
@@ -1042,13 +1180,43 @@
     if (correct) {
       el.classList.add('correct');
       result.className = 'quiz-result show correct';
-      result.innerHTML = '<strong>答案正确！</strong> 第一个 "la" 是中性代词，代指 la difficoltà（困难），常见于意大利语谚语中的固定用法。';
+      if (quizId === 'quiz1') {
+        result.innerHTML = '<strong>答案正确！</strong> 第一个 "la" 是中性代词，代指 la difficoltà（困难），常见于意大利语谚语中的固定用法。';
+      } else {
+        result.innerHTML = '<strong>✅ 答案正确！</strong> "Chi la dura la vince" 意为：坚持不放弃的人终将获得成功。';
+      }
     } else {
       el.classList.add('wrong');
       el.classList.add('shake');
       setTimeout(() => el.classList.remove('shake'), 400);
       result.className = 'quiz-result show wrong';
-      result.innerHTML = '<strong>答错了。</strong> 正确答案是 B — 中性代词。la 在这里不是定冠词，而是代指 la difficoltà（困难）。';
+      if (quizId === 'quiz1') {
+        result.innerHTML = '<strong>答错了。</strong> 正确答案是 B — 中性代词。la 在这里不是定冠词，而是代指 la difficoltà（困难）。';
+      } else {
+        result.innerHTML = '<strong>答错了。</strong> 正确答案是 B — Chi continua a insistere nonostante le difficoltà otterrà successo（坚持不放弃的人终将成功）。';
+      }
+    }
+  }
+
+  // ── Fill-in-the-blank ─────────────────────────────────
+  function checkFill() {
+    const input = document.getElementById('fillInput');
+    const result = document.getElementById('fillResult');
+    const userAnswer = (input.textContent || '').trim().replace(/_+/g, '').trim();
+    const correctAnswer = 'chi la dura la vince';
+
+    result.style.display = 'block';
+    if (userAnswer.toLowerCase().replace(/\s+/g, ' ') === correctAnswer) {
+      result.style.background = 'var(--verde-dim)';
+      result.style.border = '1px solid var(--verde-border)';
+      result.style.color = 'var(--verde)';
+      result.innerHTML = '<strong>✅ 回答正确！</strong> \"Chi la dura la vince\" — 坚持就是胜利！';
+      markLearned('fill');
+    } else {
+      result.style.background = 'var(--rosso-dim)';
+      result.style.border = '1px solid var(--rosso-border)';
+      result.style.color = 'var(--rosso)';
+      result.innerHTML = '<strong>❌ 再想想！</strong> 正确答案是 <em>Chi la dura la vince</em>（坚持就是胜利）。';
     }
   }
 
