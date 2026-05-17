@@ -573,6 +573,34 @@
       color: var(--accent);
     }
 
+    /* ── Nav row (目录 + 下一页) ───────────────────── */
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 16px 0 0;
+      gap: 12px;
+    }
+    .next-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text2);
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .next-link:hover {
+      background: var(--accent-dim);
+      border-color: rgba(192,57,43,0.2);
+      color: var(--accent);
+    }
+
     /* ── Responsive ─────────────────────────────────── */
     @media (max-width: 600px) {
       body { padding: 12px 12px 60px; }
@@ -590,7 +618,10 @@
 
 <div class="container">
 
-  <a href="index.html" class="back-link">← 目录</a>
+  <div class="nav-row">
+    <a href="index.html" class="back-link">← 目录</a>
+    <a href="in-bocca-al-lupo.html" class="next-link">#02 In bocca al lupo →</a>
+  </div>
 
   <!-- Hero -->
   <div class="hero">
